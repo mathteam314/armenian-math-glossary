@@ -1,0 +1,1802 @@
+<!doctype html>
+<html lang="hy">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Մաթեմատիկական տերմինների բառարան</title>
+
+    <!-- Fuse.js (fuzzy search) -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            margin: 0;
+            padding: 64px 24px 96px;
+            background: #f7f7fb;
+            color: #1a1a22;
+            line-height: 1.55;
+        }
+        
+        .container {
+            width: 70%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin: 0 0 24px 0;
+            font-size: 32px;
+            letter-spacing: -0.01em;
+        }
+        
+        .user-guide {
+            margin: 0 0 36px 0;
+            color: #4a4a55;
+            font-size: 14px;
+        }
+        
+        .user-guide h2 {
+            margin: 0 0 10px 0;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a7a85;
+        }
+        
+        .user-guide p {
+            margin: 0 0 12px 0;
+        }
+        
+        .user-guide ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .user-guide li {
+            margin-bottom: 6px;
+        }
+        
+        .user-guide code {
+            background: #ececf2;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 12.5px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+        
+        .searchbox {
+            margin: 0 0 24px 0;
+        }
+        
+        input[type="search"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #d0d4db;
+            font-size: 16px;
+            background: #fff;
+            transition: border-color .15s, box-shadow .15s;
+        }
+        
+        input[type="search"]:focus {
+            outline: none;
+            border-color: #7a8aff;
+            box-shadow: 0 0 0 3px rgba(122, 138, 255, 0.18);
+        }
+        
+        input[type="search"]::placeholder {
+            font-style: italic;
+            color: #9a9aa5;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04), 0 0 0 1px rgba(16, 24, 40, 0.06);
+        }
+        
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 50%;
+        }
+        
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 50%;
+        }
+        
+        th,
+        td {
+            text-align: left;
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f4;
+            vertical-align: top;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+        
+        th {
+            background: #fafafa;
+            font-weight: 600;
+            font-size: 12px;
+            color: #6a6a75;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+        
+        tr.hidden {
+            display: none;
+        }
+        
+        .highlight {
+            background: #fff29a;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        
+        .no-results {
+            padding: 18px;
+            text-align: center;
+            color: #666;
+        }
+        
+        @media (max-width: 720px) {
+            body {
+                padding: 20px 16px 48px;
+            }
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Մաթեմատիկական տերմինների բառարան</h1>
+
+        <section class="user-guide">
+            <h2>Անգլերեն-հայերեն և հայերեն-անգլերեն</h2>
+            <p>Ներքևում բերված բառացուցակում կա անգլերենից հայերեն թարգմանությամբ շուրջ 1000 տերմին մաթեմատիկայի տարբեր ճյուղերից (ինչը նշանակում է, որ այն շատ հեռու է համապարփակ բառարան համարվելուց)։</p>
+            <p>Ինչպե՞ս օգտվել բառարանից.</p>
+            <ul>
+                <li>Որոնման դաշտում բավարար է գրել ոչ թե ամբողջ արտահայտությունը, այլ առաջին մի քանի տառերը։</li>
+                <li>Կարելի է որոնել ինչպես անգլերեն, այնպես էլ հայերեն արտահայտություն։</li>
+            </ul>
+        </section>
+
+        <div class="searchbox" role="search" aria-label="Search glossary">
+            <input id="search" type="search" placeholder="Օրինակ՝ vector space..." aria-label="Search table" />
+            <!-- <div class="controls" style="display:none;" aria-hidden="true">
+        <label>Threshold:
+          <input id="threshold" type="range" min="0" max="100" value="15" />
+        </label>
+        <span id="thr-val">15%</span>
+      </div> -->
+        </div>
+
+        <table id="glossary" role="table" aria-label="Glossary table">
+            <thead>
+                <tr>
+                    <th>Անգլերեն</th>
+                    <th>Հայերեն</th>
+                </tr>
+            </thead>
+            <tbody>
+      <tr><td><b>$n$-tuple</b></td><td>$n$-յակ</td></tr>
+      <tr><td><b>$p$-adic number</b></td><td>$p$-ադիկ թիվ</td></tr>
+      <tr><td><b>$p$-value</b></td><td>$p$-արժեք</td></tr>
+      <tr><td><b>abelian group</b></td><td>աբելյան խումբ</td></tr>
+      <tr><td><b>absolutely continuous</b></td><td>բացարձակ անընդհատ</td></tr>
+      <tr><td><b>abstract algebra</b></td><td>աբստրակտ հանրահաշիվ</td></tr>
+      <tr><td><b>accumulation point</b></td><td>կուտակման կետ</td></tr>
+      <tr><td><b>additive</b></td><td>ադիտիվ, <i>երբեմն նաև՝</i> գումարային</td></tr>
+      <tr><td><b>additive group</b></td><td>գումարային խումբ</td></tr>
+      <tr><td><b>adherent point</b></td><td>հպման կետ</td></tr>
+      <tr><td><b>adjacency matrix</b></td><td>հարևանության մատրից</td></tr>
+      <tr><td><b>adjacent </b></td><td>հարևան</td></tr>
+      <tr><td><b>adjoint operator</b></td><td>համալուծ օպերատոր</td></tr>
+      <tr><td><b>adjugate matrix</b></td><td>կից մատրից</td></tr>
+      <tr><td><b>admissible</b></td><td>թույլատրելի</td></tr>
+      <tr><td><b>affine map</b></td><td>աֆինական արտապատկերում</td></tr>
+      <tr><td><b>affine transformation</b></td><td>աֆինական ձևափոխություն</td></tr>
+      <tr><td><b>algebra</b></td><td>հանրահաշիվ</td></tr>
+      <tr><td><b>algebra homomorphism</b></td><td>հանրահաշիվների հոմոմորֆիզմ</td></tr>
+      <tr><td><b>algebraic closure</b></td><td>հանրահաշվական փակում / փակույթ</td></tr>
+      <tr><td><b>algebraic curve</b></td><td>հանրահաշվական կոր </td></tr>
+      <tr><td><b>algebraic extension</b></td><td>հանրահաշվական ընդլայնում</td></tr>
+      <tr><td><b>algebraic number</b></td><td>հանրահաշվական թիվ</td></tr>
+      <tr><td><b>algebraic topology</b></td><td>հանրահաշվական տոպոլոգիա</td></tr>
+      <tr><td><b>almost everywhere (a.e.)</b></td><td>համարյա ամենուրեք (հ․ա․)</td></tr>
+      <tr><td><b>almost sure (a.s.)</b></td><td>համարյա հավաստի (հ․հ․)</td></tr>
+      <tr><td><b>alternating series</b></td><td>նշանափոխ շարք</td></tr>
+      <tr><td><b>altitude</b></td><td>բարձրություն</td></tr>
+      <tr><td><b>amalgamated free product</b></td><td>համաձուլված ազատ արտադրյալ</td></tr>
+      <tr><td><b>ambient space</b></td><td>ընդգրկող տարածություն</td></tr>
+      <tr><td><b>analytic continuation</b></td><td>անալիտիկ շարունակություն</td></tr>
+      <tr><td><b>analytic function</b></td><td>անալիտիկ ֆունկցիա</td></tr>
+      <tr><td><b>analytic geometry</b></td><td>վերլուծական երկրաչափություն</td></tr>
+      <tr><td><b>angle bisector</b></td><td>կիսորդ</td></tr>
+      <tr><td><b>annulus</b></td><td>օղակ</td></tr>
+      <tr><td><b>antiderivative</b></td><td>նախնական</td></tr>
+      <tr><td><b>antiparallel</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>հակուղղված (վեկտորների դեպքում)</li><li>հակազուգահեռ (ուղիղների դեպքում)</li></ol></td></tr>
+      <tr><td><b>apothem</b></td><td>հարթագիծ</td></tr>
+      <tr><td><b>applied mathematics</b></td><td>կիրառական մաթեմատիկա</td></tr>
+      <tr><td><b>approximate identity</b></td><td>միավորի մոտարկում</td></tr>
+      <tr><td><b>approximation</b></td><td>մոտարկում</td></tr>
+      <tr><td><b>arc</b></td><td>աղեղ</td></tr>
+      <tr><td><b>area</b></td><td>մակերես</td></tr>
+      <tr><td><b>argument principle</b></td><td>արգումենտի սկզբունք</td></tr>
+      <tr><td><b>arithmetic mean</b></td><td>միջին թվաբանական </td></tr>
+      <tr><td><b>arithmetic progression</b></td><td>թվաբանական պրոգրեսիա</td></tr>
+      <tr><td><b>associative</b></td><td>զուգորդական</td></tr>
+      <tr><td><b>asymptotic</b></td><td>ասիմպտոտիկ</td></tr>
+      <tr><td><b>atlas</b></td><td>ատլաս</td></tr>
+      <tr><td><b>attainable</b></td><td>հասանելի</td></tr>
+      <tr><td><b>augmented matrix</b></td><td>ընդլայնված մատրից</td></tr>
+      <tr><td><b>automorphism</b></td><td>ավտոմորֆիզմ</td></tr>
+      <tr><td><b>automorphism group</b></td><td>ավտոմորֆիզմների խումբ</td></tr>
+      <tr><td><b>autonomous system</b></td><td>ինքնավար համակարգ</td></tr>
+      <tr><td><b>axiom</b></td><td>աքսիոմ</td></tr>
+      <tr><td><b>axiom of choice</b></td><td>ընտրության աքսիոմ</td></tr>
+      <tr><td><b>axiomatic system</b></td><td>աքսիոմատիկ համակարգ</td></tr>
+      <tr><td><b>axis</b></td><td>առանցք</td></tr>
+      <tr><td><b>backward equation</b></td><td>հետադարձ հավասարում</td></tr>
+      <tr><td><b>balanced set</b></td><td>հավասարակշռված բազմություն</td></tr>
+      <tr><td><b>ball</b></td><td>գունդ</td></tr>
+      <tr><td><b>Banach algebra</b></td><td>բանախյան հանրահաշիվ</td></tr>
+      <tr><td><b>Banach space</b></td><td>բանախյան տարածություն</td></tr>
+      <tr><td><b>base</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>բազա (տոպոլոգիայի)</li><li>հիմք (աստիճան բարձրացված թիվը)</li></ol></td></tr>
+      <tr><td><b>basis</b></td><td>հենք, բազիս</td></tr>
+      <tr><td><b>behavior</b></td><td>վարք</td></tr>
+      <tr><td><b>Bernoulli trials</b></td><td>Բեռնուլիի փորձեր</td></tr>
+      <tr><td><b>best approximation</b></td><td>լավագույն մոտարկում</td></tr>
+      <tr><td><b>beta distribution</b></td><td>բետա բաշխում</td></tr>
+      <tr><td><b>bijective</b></td><td>բիյեկտիվ, փոխմիարժեք</td></tr>
+      <tr><td><b>bilinear form</b></td><td>երկգծային ձև</td></tr>
+      <tr><td><b>binary relation</b></td><td>երկտեղ/բինար հարաբերություն</td></tr>
+      <tr><td><b>binary system</b></td><td>երկուական համակարգ</td></tr>
+      <tr><td><b>binomial </b></td><td>երկանդամ</td></tr>
+      <tr><td><b>binomial distribution</b></td><td>բինոմական բաշխում</td></tr>
+      <tr><td><b>bipartite graph</b></td><td>երկկողմանի գրաֆ</td></tr>
+      <tr><td><b>bisection method</b></td><td>[միջակայքի] կիսման մեթոդ</td></tr>
+      <tr><td><b>bit</b></td><td>բիթ</td></tr>
+      <tr><td><b>block matrix</b></td><td>բլոկ-մատրից</td></tr>
+      <tr><td><b>Bolzano-Weierstrass theorem</b></td><td>Բոլցանո-Վայերշտրասի թեորեմ</td></tr>
+      <tr><td><b>Boolean algebra</b></td><td>բուլյան հանրահաշիվ</td></tr>
+      <tr><td><b>Borel set</b></td><td>բորելյան բազմություն</td></tr>
+      <tr><td><b>Borel-Cantelli lemma</b></td><td>Բորել-Կանտելիի լեմմա</td></tr>
+      <tr><td><b>boundary</b></td><td>եզր, եզրագիծ</td></tr>
+      <tr><td><b>boundary condition</b></td><td>եզրային պայման</td></tr>
+      <tr><td><b>boundary point</b></td><td>եզրային կետ</td></tr>
+      <tr><td><b>bounded [from above/below]</b></td><td>[վերևից/ներքևից] սահմանափակ</td></tr>
+      <tr><td><b>bounded variation</b></td><td>վերջավոր վարիացիա, <i>երբեմն նաև՝</i> սահմանափակ վարիացիա</td></tr>
+      <tr><td><b>branch</b></td><td>ճյուղ</td></tr>
+      <tr><td><b>branch cut</b></td><td>հատվածային ճեղք</td></tr>
+      <tr><td><b>branch point</b></td><td>ճյուղավորման կետ</td></tr>
+      <tr><td><b>Brownian motion</b></td><td>բրոունյան / բրաունյան շարժում</td></tr>
+      <tr><td><b>canonical map</b></td><td>կանոնական արտապատկերում</td></tr>
+      <tr><td><b>cardinal number</b></td><td>կարդինալ թիվ</td></tr>
+      <tr><td><b>cardinality</b></td><td>հզորություն</td></tr>
+      <tr><td><b>Cartesian product</b></td><td>դեկարտյան արտադրյալ</td></tr>
+      <tr><td><b>category</b></td><td>կատեգորիա</td></tr>
+      <tr><td><b>category theory</b></td><td>կատեգորիաների տեսություն</td></tr>
+      <tr><td><b>Cauchy integral formula</b></td><td>Կոշիի ինտեգրալային բանաձև</td></tr>
+      <tr><td><b>Cauchy integral theorem</b></td><td>Կոշիի ինտեգրալային թեորեմ</td></tr>
+      <tr><td><b>Cauchy problem</b></td><td>Կոշիի խնդիր</td></tr>
+      <tr><td><b>Cauchy sequence</b></td><td>ֆունդամենտալ հաջորդականություն, Կոշիի հաջորդականություն</td></tr>
+      <tr><td><b>Cauchy-Kovalevskaya theorem</b></td><td>Կոշի-Կովալևսկայայի թեորեմ</td></tr>
+      <tr><td><b>Cauchy-Riemann equations</b></td><td>Կոշի-Ռիմանի պայմաններ / հավասարումներ</td></tr>
+      <tr><td><b>Cauchy's convergence test / criterion</b></td><td>Կոշիի զուգամիտության սկզբունք</td></tr>
+      <tr><td><b>center of a group</b></td><td>խմբի կենտրոն</td></tr>
+      <tr><td><b>central limit theorem</b></td><td>կենտրոնական սահմանային թեորեմ</td></tr>
+      <tr><td><b>centralizer</b></td><td>ցենտրալիզատոր</td></tr>
+      <tr><td><b>chain rule</b></td><td>շղթայի կանոն</td></tr>
+      <tr><td><b>change of basis</b></td><td>հենքի փոփոխություն, անցում մի հենքից մյուսին</td></tr>
+      <tr><td><b>change of variable</b></td><td>փոփոխականի փոխարինում</td></tr>
+      <tr><td><b>characteristic equation</b></td><td>բնութագրիչ հավասարում</td></tr>
+      <tr><td><b>characteristic function</b></td><td>բնութագրիչ ֆունկցիա</td></tr>
+      <tr><td><b>characteristic polynomial</b></td><td>բնութագրիչ բազմանդամ</td></tr>
+      <tr><td><b>characterization</b></td><td>բնութագրում</td></tr>
+      <tr><td><b>chart</b></td><td>քարտեզ</td></tr>
+      <tr><td><b>chi-squared distribution</b></td><td>խի-քառակուսի բաշխում</td></tr>
+      <tr><td><b>Chinese remainder theorem</b></td><td>մնացքների չինական թեորեմ</td></tr>
+      <tr><td><b>chord</b></td><td>լար</td></tr>
+      <tr><td><b>Christoffel symbols</b></td><td>Քրիստոֆելի սիմվոլներ</td></tr>
+      <tr><td><b>circle</b></td><td>շրջանագիծ</td></tr>
+      <tr><td><b>circumscribed</b></td><td>արտագծած</td></tr>
+      <tr><td><b>class</b></td><td>դաս</td></tr>
+      <tr><td><b>closed curve</b></td><td>փակ կոր</td></tr>
+      <tr><td><b>closed graph theorem</b></td><td>փակ գրաֆիկի [մասին] թեորեմ</td></tr>
+      <tr><td><b>closed interval</b></td><td>փակ միջակայք, հատված (սահմանափակ դեպքում)</td></tr>
+      <tr><td><b>closed map</b></td><td>փակ արտապատկերում</td></tr>
+      <tr><td><b>closed set</b></td><td>փակ բազմություն</td></tr>
+      <tr><td><b>closed under addition</b></td><td>գումարման նկատմամբ փակ</td></tr>
+      <tr><td><b>closure</b></td><td>փակում, փակույթ</td></tr>
+      <tr><td><b>cluster point</b></td><td>կուտակման կետ</td></tr>
+      <tr><td><b>coarser topology</b></td><td>[ավելի] թույլ տոպոլոգիա</td></tr>
+      <tr><td><b>codimension</b></td><td>կոչափողականություն</td></tr>
+      <tr><td><b>codirectional</b></td><td>համուղղված</td></tr>
+      <tr><td><b>codomain</b></td><td>փոփոխման տիրույթ</td></tr>
+      <tr><td><b>coefficient</b></td><td>գործակից</td></tr>
+      <tr><td><b>cofactor</b></td><td>հանրահաշվական լրացում</td></tr>
+      <tr><td><b>cofinite topology</b></td><td>վերջավոր լրացումների տոպոլոգիա</td></tr>
+      <tr><td><b>cohomology</b></td><td>կոհոմոլոգիա</td></tr>
+      <tr><td><b>colinear</b></td><td>համագիծ</td></tr>
+      <tr><td><b>collection</b></td><td>հավաքածու, համախմբություն, համախումբ</td></tr>
+      <tr><td><b>coloring</b></td><td>ներկում</td></tr>
+      <tr><td><b>column space</b></td><td>սյունային տարածություն</td></tr>
+      <tr><td><b>column vector</b></td><td>սյուն-վեկտոր</td></tr>
+      <tr><td><b>combinatorics</b></td><td>կոմբինատորիկա</td></tr>
+      <tr><td><b>commutant</b></td><td>կոմուտանտ</td></tr>
+      <tr><td><b>commutative</b></td><td>տեղափոխական, կոմուտատիվ</td></tr>
+      <tr><td><b>commutator</b></td><td>կոմուտատոր</td></tr>
+      <tr><td><b>compact </b></td><td>կոմպակտ</td></tr>
+      <tr><td><b>compact embedding</b></td><td>կոմպակտ ներդրում</td></tr>
+      <tr><td><b>compact operator</b></td><td>կոմպակտ օպերատոր</td></tr>
+      <tr><td><b>compactly supported</b></td><td>կոմպակտ կրիչով</td></tr>
+      <tr><td><b>compactness</b></td><td>կոմպակտություն</td></tr>
+      <tr><td><b>comparable</b></td><td>համեմատելի</td></tr>
+      <tr><td><b>comparison test</b></td><td>բաղդատման հայտանիշ</td></tr>
+      <tr><td><b>compatible</b></td><td>համատեղելի</td></tr>
+      <tr><td><b>complement</b></td><td>լրացում</td></tr>
+      <tr><td><b>complete</b></td><td>լրիվ </td></tr>
+      <tr><td><b>completeness</b></td><td>լրիվություն</td></tr>
+      <tr><td><b>completion</b></td><td>լրիվացում</td></tr>
+      <tr><td><b>complex analysis</b></td><td>կոմպլեքս անալիզ</td></tr>
+      <tr><td><b>complex conjugate</b></td><td>կոմպլեքս համալուծ</td></tr>
+      <tr><td><b>complex number</b></td><td>կոմպլեքս թիվ</td></tr>
+      <tr><td><b>complex plane</b></td><td>կոմպլեքս հարթություն</td></tr>
+      <tr><td><b>complex-valued</b></td><td>կոմպլեքսարժեք</td></tr>
+      <tr><td><b>complexity</b></td><td>բարդություն</td></tr>
+      <tr><td><b>component</b></td><td>բաղադրիչ</td></tr>
+      <tr><td><b>component interval</b></td><td>բաղկացուցիչ միջակայք</td></tr>
+      <tr><td><b>composite function</b></td><td>բարդ ֆունկցիա</td></tr>
+      <tr><td><b>composite number</b></td><td>բաղադրյալ թիվ</td></tr>
+      <tr><td><b>composition</b></td><td>համադրույթ</td></tr>
+      <tr><td><b>computability</b></td><td>կարգընթացություն</td></tr>
+      <tr><td><b>computational error</b></td><td>հաշվողական սխալանք</td></tr>
+      <tr><td><b>concave</b></td><td>գոգավոր</td></tr>
+      <tr><td><b>concentric</b></td><td>համակենտրոն</td></tr>
+      <tr><td><b>conditional expectation</b></td><td>պայմանական մաթսպասում</td></tr>
+      <tr><td><b>conditional probability</b></td><td>պայմանական հավանականություն</td></tr>
+      <tr><td><b>conditionally convergent</b></td><td>պայմանական զուգամետ</td></tr>
+      <tr><td><b>cone</b></td><td>կոն</td></tr>
+      <tr><td><b>confidence interval</b></td><td>վստահության միջակայք</td></tr>
+      <tr><td><b>conformal map</b></td><td>կոնֆորմ արտապատկերում</td></tr>
+      <tr><td><b>congruent</b></td><td>կոնգրուենտ</td></tr>
+      <tr><td><b>conic</b></td><td>կոնական</td></tr>
+      <tr><td><b>conjugacy class</b></td><td>համալուծության դաս</td></tr>
+      <tr><td><b>conjunctive normal form</b></td><td>կոնյունկտիվ նորմալ ձև</td></tr>
+      <tr><td><b>connected</b></td><td>կապակցված</td></tr>
+      <tr><td><b>connected component</b></td><td>կապակցվածության բաղադրիչ</td></tr>
+      <tr><td><b>connectedness</b></td><td>կապակցվածություն</td></tr>
+      <tr><td><b>connection</b></td><td>կապակցություն</td></tr>
+      <tr><td><b>consistency</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>անհակասականություն (ֆորմալ համակարգի մասին)</li><li>ունակություն (գնահատականի մասին)</li></ol></td></tr>
+      <tr><td><b>constant</b></td><td>հաստատուն</td></tr>
+      <tr><td><b>constant term</b></td><td>ազատ անդամ</td></tr>
+      <tr><td><b>continued fraction</b></td><td>շղթայական կոտորակ</td></tr>
+      <tr><td><b>continuity</b></td><td>անընդհատություն</td></tr>
+      <tr><td><b>continuous</b></td><td>անընդհատ</td></tr>
+      <tr><td><b>continuous dependence</b></td><td>անընդհատ կախվածություն</td></tr>
+      <tr><td><b>continuous representative</b></td><td>անընդհատ ներկայացուցիչ</td></tr>
+      <tr><td><b>continuum</b></td><td>կոնտինուում</td></tr>
+      <tr><td><b>continuum hypothesis</b></td><td>կոնտինուում-վարկած</td></tr>
+      <tr><td><b>contour</b></td><td>կոնտուր</td></tr>
+      <tr><td><b>contraction</b></td><td>կծկում, սեղմում</td></tr>
+      <tr><td><b>contraction mapping</b></td><td>սեղմող արտապատկերում</td></tr>
+      <tr><td><b>contradiction</b></td><td>հակասություն</td></tr>
+      <tr><td><b>convergence</b></td><td>զուգամիտություն</td></tr>
+      <tr><td><b>convergent in distribution</b></td><td>ըստ բաշխման զուգամետ</td></tr>
+      <tr><td><b>convergent in measure / probability</b></td><td>ըստ չափի / հավանականության զուգամետ</td></tr>
+      <tr><td><b>convergent in norm</b></td><td>ըստ նորմի զուգամետ, նորմով զուգամետ</td></tr>
+      <tr><td><b>convex</b></td><td>ուռուցիկ</td></tr>
+      <tr><td><b>convex combination</b></td><td>ուռուցիկ զուգակցություն/կոմբինացիա</td></tr>
+      <tr><td><b>convex envelope / hull</b></td><td>ուռուցիկ թաղանթ</td></tr>
+      <tr><td><b>convexity</b></td><td>ուռուցիկություն</td></tr>
+      <tr><td><b>convolution</b></td><td>փաթույթ</td></tr>
+      <tr><td><b>coordinate</b></td><td>կոորդինատ</td></tr>
+      <tr><td><b>coordinate system</b></td><td>կոորդինատային / կոորդինատական համակարգ</td></tr>
+      <tr><td><b>coordinatewise convergence</b></td><td>կոորդինատային զուգամիտություն</td></tr>
+      <tr><td><b>coplanar</b></td><td>համահարթ</td></tr>
+      <tr><td><b>coprime</b></td><td>փոխադարձ[աբար] պարզ</td></tr>
+      <tr><td><b>coproduct</b></td><td>կոարտադրյալ</td></tr>
+      <tr><td><b>corollary</b></td><td>հետևանք</td></tr>
+      <tr><td><b>correlation</b></td><td>կոռելացիա</td></tr>
+      <tr><td><b>coset</b></td><td>հարակից դաս</td></tr>
+      <tr><td><b>countable set</b></td><td>հաշվելի բազմություն</td></tr>
+      <tr><td><b>counterexample</b></td><td>հակաօրինակ</td></tr>
+      <tr><td><b>counting measure</b></td><td>հաշվող չափ</td></tr>
+      <tr><td><b>covariance matrix</b></td><td>կովարիացիոն մատրից</td></tr>
+      <tr><td><b>covering space</b></td><td>ծածկող տարածություն, ծածկոց</td></tr>
+      <tr><td><b>critical point</b></td><td>կրիտիկական կետ</td></tr>
+      <tr><td><b>cross product</b></td><td>վեկտորական արտադրյալ</td></tr>
+      <tr><td><b>cross-ratio</b></td><td>կրկնակի հարաբերություն</td></tr>
+      <tr><td><b>cube</b></td><td>խորանարդ</td></tr>
+      <tr><td><b>cumulative distribution function (cdf)</b></td><td>բաշխման ֆունկցիա</td></tr>
+      <tr><td><b>curvature</b></td><td>կորություն</td></tr>
+      <tr><td><b>curvilinear</b></td><td>կորագիծ</td></tr>
+      <tr><td><b>curvilinear trapezoid</b></td><td>կորագիծ սեղան</td></tr>
+      <tr><td><b>cycle</b></td><td>ցիկլ</td></tr>
+      <tr><td><b>cyclic group</b></td><td>ցիկլիկ խումբ, միածին խումբ</td></tr>
+      <tr><td><b>cyclotomic polynomial</b></td><td>ցիկլոտոմիկ բազմանդամ</td></tr>
+      <tr><td><b>cylinder</b></td><td>գլան</td></tr>
+      <tr><td><b>decimal</b></td><td>տասնորդական</td></tr>
+      <tr><td><b>decreasing</b></td><td>նվազող</td></tr>
+      <tr><td><b>Dedekind cut</b></td><td>Դեդեկինդի հատույթ</td></tr>
+      <tr><td><b>deduction</b></td><td>դեդուկցիա</td></tr>
+      <tr><td><b>defining relations</b></td><td>որոշիչ առնչություններ</td></tr>
+      <tr><td><b>definition</b></td><td>սահմանում</td></tr>
+      <tr><td><b>degenerate</b></td><td>վերասերված</td></tr>
+      <tr><td><b>degree</b></td><td>աստիճան</td></tr>
+      <tr><td><b>degrees of freedom</b></td><td>ազատության աստիճաններ</td></tr>
+      <tr><td><b>denominator</b></td><td>հայտարար</td></tr>
+      <tr><td><b>dense</b></td><td>խիտ, երբեմն՝ ամենուրեք խիտ</td></tr>
+      <tr><td><b>density</b></td><td>խտություն</td></tr>
+      <tr><td><b>density point</b></td><td>խտության կետ</td></tr>
+      <tr><td><b>derivative</b></td><td>ածանցյալ</td></tr>
+      <tr><td><b>descriptive statistics</b></td><td>նկարագրական վիճակագրություն</td></tr>
+      <tr><td><b>determinant</b></td><td>որոշիչ</td></tr>
+      <tr><td><b>diagonal</b></td><td>անկյունագիծ</td></tr>
+      <tr><td><b>diagonal dominance</b></td><td>անկյունագծային գերիշխում</td></tr>
+      <tr><td><b>diagonal matrix</b></td><td>անկյունագծային մատրից</td></tr>
+      <tr><td><b>diagonal matrix</b></td><td>անկյունագծային մատրից</td></tr>
+      <tr><td><b>diagonalization</b></td><td>անկյունագծայնացում</td></tr>
+      <tr><td><b>diameter</b></td><td>տրամագիծ</td></tr>
+      <tr><td><b>diametrically opposite </b></td><td>տրամագծորեն հակադիր</td></tr>
+      <tr><td><b>diffeomorphism</b></td><td>դիֆեոմորֆիզմ</td></tr>
+      <tr><td><b>difference</b></td><td>տարբերություն</td></tr>
+      <tr><td><b>difference equation</b></td><td>տարբերական հավասարում</td></tr>
+      <tr><td><b>differentiable</b></td><td>դիֆերենցելի, ածանցելի</td></tr>
+      <tr><td><b>differential form</b></td><td>դիֆերենցիալ ձև</td></tr>
+      <tr><td><b>differential form</b></td><td>դիֆերենցիալ ձև</td></tr>
+      <tr><td><b>digraph (=directed graph)</b></td><td>դիգրաֆ (=կողմնորոշված գրաֆ)</td></tr>
+      <tr><td><b>dihedral angle</b></td><td>երկնիստ անկյուն</td></tr>
+      <tr><td><b>dimension</b></td><td>չափողականություն</td></tr>
+      <tr><td><b>dimensionality reduction</b></td><td>չափողականության իջեցում</td></tr>
+      <tr><td><b>Dirac operator</b></td><td>Դիրակի օպերատոր</td></tr>
+      <tr><td><b>direct product</b></td><td>ուղիղ արտադրյալ</td></tr>
+      <tr><td><b>direct sum</b></td><td>ուղիղ գումար</td></tr>
+      <tr><td><b>directed line segment</b></td><td>ուղղորդված հատված</td></tr>
+      <tr><td><b>direction cosine</b></td><td>ուղղորդ կոսինուս</td></tr>
+      <tr><td><b>direction field</b></td><td>ուղղությունների դաշտ</td></tr>
+      <tr><td><b>directional derivative</b></td><td>ուղղությամբ ածանցյալ</td></tr>
+      <tr><td><b>directly proportional</b></td><td>ուղիղ համեմատական</td></tr>
+      <tr><td><b>discontinuity</b></td><td>խզում</td></tr>
+      <tr><td><b>discrete distribution</b></td><td>դիսկրետ բաշխում</td></tr>
+      <tr><td><b>discriminant</b></td><td>դիսկրիմինանտ</td></tr>
+      <tr><td><b>disjoint</b></td><td>չհատվող, անհամատեղելի (պատահույթների դեպքում)</td></tr>
+      <tr><td><b>disjunctive normal form</b></td><td>դիզյունկտիվ նորմալ ձև</td></tr>
+      <tr><td><b>disk</b></td><td>շրջան</td></tr>
+      <tr><td><b>distance</b></td><td>հեռավորություն</td></tr>
+      <tr><td><b>distributive</b></td><td>բաշխական</td></tr>
+      <tr><td><b>divergence</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>տարամիտություն (շարքի)</li><li>դիվերգենցիա (վեկտորական դաշտի)</li></ol></td></tr>
+      <tr><td><b>divided difference</b></td><td>բաժանվող տարբերություն</td></tr>
+      <tr><td><b>division algebra</b></td><td>բաժանումով հանրահաշիվ</td></tr>
+      <tr><td><b>divisor</b></td><td>բաժանարար</td></tr>
+      <tr><td><b>domain</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>տիրույթ (բաց կապակցված բազմություն)</li><li>որոշման տիրույթ (ֆունկցիայի)</li></ol></td></tr>
+      <tr><td><b>dominated convergence theorem</b></td><td>Լեբեգի թեորեմ, մաժորանտով զուգամիտության թեորեմ </td></tr>
+      <tr><td><b>dot product</b></td><td>սկալյար արտադրյալ</td></tr>
+      <tr><td><b>double factorial</b></td><td>կիսաֆակտորիալ</td></tr>
+      <tr><td><b>double integral</b></td><td>կրկնակի ինտեգրալ</td></tr>
+      <tr><td><b>dual space</b></td><td>համալուծ տարածություն</td></tr>
+      <tr><td><b>duality</b></td><td>երկակիություն, համալուծություն</td></tr>
+      <tr><td><b>edge</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>կողմ (բազմանկյան մեջ)</li><li>կող (գրաֆի մեջ)</li></ol></td></tr>
+      <tr><td><b>efficient estimator</b></td><td>արդյունավետ գնահատական</td></tr>
+      <tr><td><b>eigenspace</b></td><td>սեփական տարածություն</td></tr>
+      <tr><td><b>eigenvalue</b></td><td>սեփական արժեք</td></tr>
+      <tr><td><b>eigenvector</b></td><td>սեփական վեկտոր</td></tr>
+      <tr><td><b>element</b></td><td>տարր, էլեմենտ</td></tr>
+      <tr><td><b>elementary matrix</b></td><td>տարրական մատրից</td></tr>
+      <tr><td><b>elementary row operation</b></td><td>տարրական տողային գործողություն / ձևափոխություն</td></tr>
+      <tr><td><b>elliptic</b></td><td>էլիպտիկ / էլիպտական </td></tr>
+      <tr><td><b>embedding</b></td><td>ներդրում</td></tr>
+      <tr><td><b>empty set</b></td><td>դատարկ բազմություն</td></tr>
+      <tr><td><b>enclosed volume</b></td><td>պարփակված ծավալ</td></tr>
+      <tr><td><b>endomorphism</b></td><td>էնդոմորֆիզմ</td></tr>
+      <tr><td><b>endpoint</b></td><td>ծայրակետ</td></tr>
+      <tr><td><b>entire function</b></td><td>ամբողջ ֆունկցիա</td></tr>
+      <tr><td><b>entropy</b></td><td>էնտրոպիա</td></tr>
+      <tr><td><b>epimorphism</b></td><td>էպիմորֆիզմ</td></tr>
+      <tr><td><b>equality</b></td><td>հավասարում</td></tr>
+      <tr><td><b>equation</b></td><td>հավասարություն</td></tr>
+      <tr><td><b>equiareal </b></td><td>հավասարամեծ</td></tr>
+      <tr><td><b>equicontinuous</b></td><td>հավասարաստիճան անընդհատ</td></tr>
+      <tr><td><b>equidistant</b></td><td>հավասարահեռ</td></tr>
+      <tr><td><b>equidistributed</b></td><td>հավասարաչափ բաշխված</td></tr>
+      <tr><td><b>equilateral</b></td><td>հավասարակողմ</td></tr>
+      <tr><td><b>equinumerous</b></td><td>հավասարազոր, հավասարաքանակ</td></tr>
+      <tr><td><b>equiprobable</b></td><td>հավասարահավանական, հավասարահնարավոր</td></tr>
+      <tr><td><b>equivalence relation</b></td><td>համարժեքության հարաբերություն</td></tr>
+      <tr><td><b>equivalent</b></td><td>համարժեք</td></tr>
+      <tr><td><b>ergodic</b></td><td>էրգոդիկ</td></tr>
+      <tr><td><b>error</b></td><td>սխալանք</td></tr>
+      <tr><td><b>essential singular point</b></td><td>էապես եզակի կետ</td></tr>
+      <tr><td><b>estimator</b></td><td>գնահատական</td></tr>
+      <tr><td><b>Euclidean algorithm</b></td><td>Էվկլիդեսի ալգորիթմ</td></tr>
+      <tr><td><b>Euler's number</b></td><td>Էյլերի թիվ</td></tr>
+      <tr><td><b>Eulerian path / trail</b></td><td>էյլերյան ճանապարհ</td></tr>
+      <tr><td><b>even</b></td><td>զույգ</td></tr>
+      <tr><td><b>event</b></td><td>պատահույթ</td></tr>
+      <tr><td><b>everywhere dense</b></td><td>ամենուրեք խիտ</td></tr>
+      <tr><td><b>exact differential</b></td><td>լրիվ դիֆերենցիալ, <i>երբեմն նաև՝</i> ճշգրիտ դիֆերենցիալ</td></tr>
+      <tr><td><b>exhaustion by compact sets</b></td><td>կոմպակտ սպառում</td></tr>
+      <tr><td><b>existence</b></td><td>գոյություն</td></tr>
+      <tr><td><b>expectation / expected value</b></td><td>մաթսպասում (=մաթեմատիկական սպասում)</td></tr>
+      <tr><td><b>explicit</b></td><td>բացահայտ</td></tr>
+      <tr><td><b>exponent</b></td><td>էքսպոնենտ, ցուցիչ</td></tr>
+      <tr><td><b>exponential</b></td><td>ցուցչային, էքսպոնենցիալ</td></tr>
+      <tr><td><b>extended $\mathbb{R}$</b></td><td>ընդլայնված $\mathbb{R}$</td></tr>
+      <tr><td><b>extension</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>ընդլայնում (հանրահաշվական օբյեկտի)</li><li>շարունակություն (ֆունկցիայի)</li></ol></td></tr>
+      <tr><td><b>exterior</b></td><td>արտաքնամաս</td></tr>
+      <tr><td><b>external point</b></td><td>արտաքին կետ</td></tr>
+      <tr><td><b>extreme point</b></td><td>գագաթնային կետ</td></tr>
+      <tr><td><b>face</b></td><td>նիստ</td></tr>
+      <tr><td><b>Fatou's lemma</b></td><td>Ֆատուի լեմմա</td></tr>
+      <tr><td><b>fiber</b></td><td>շերտ</td></tr>
+      <tr><td><b>Fibonacci sequence</b></td><td>Ֆիբոնաչիի հաջորդականություն</td></tr>
+      <tr><td><b>field</b></td><td>դաշտ</td></tr>
+      <tr><td><b>field characteristic</b></td><td>դաշտի բնութագրիչ</td></tr>
+      <tr><td><b>field extension</b></td><td>դաշտի ընդլայնում</td></tr>
+      <tr><td><b>filtration</b></td><td>ֆիլտրացիա</td></tr>
+      <tr><td><b>finer topology</b></td><td>[ավելի] ուժեղ տոպոլոգիա</td></tr>
+      <tr><td><b>finite complement topology</b></td><td>վերջավոր լրացումների տոպոլոգիա</td></tr>
+      <tr><td><b>finite difference method</b></td><td>վերջավոր տարբերությունների մեթոդ</td></tr>
+      <tr><td><b>finite element method</b></td><td>վերջավոր տարրերի/էլեմենտների մեթոդ</td></tr>
+      <tr><td><b>finite group</b></td><td>վերջավոր խումբ</td></tr>
+      <tr><td><b>finite measure space</b></td><td>վերջավոր չափով տարածություն</td></tr>
+      <tr><td><b>finite-dimensional</b></td><td>վերջավոր չափանի</td></tr>
+      <tr><td><b>finitely generated</b></td><td>վերջավոր ծնված</td></tr>
+      <tr><td><b>finitely presented</b></td><td>վերջավոր տրված</td></tr>
+      <tr><td><b>first fundamental form</b></td><td>առաջին ֆունդամենտալ ձև, առաջին քառակուսային ձև</td></tr>
+      <tr><td><b>first isomorphism theorem</b></td><td>հոմոմորֆիզմների հիմնական թեորեմ, իզոմորֆիզմների առաջին թեորեմ</td></tr>
+      <tr><td><b>fixpoint / fixed point</b></td><td>անշարժ կետ</td></tr>
+      <tr><td><b>flux</b></td><td>հոսք</td></tr>
+      <tr><td><b>focus</b></td><td>կիզակետ, ֆոկուս</td></tr>
+      <tr><td><b>forest</b></td><td>անտառ</td></tr>
+      <tr><td><b>formula</b></td><td>բանաձև</td></tr>
+      <tr><td><b>forward equation</b></td><td>ուղղակի հավասարում</td></tr>
+      <tr><td><b>Fourier coefficient</b></td><td>Ֆուրյեի գործակից</td></tr>
+      <tr><td><b>Fourier series</b></td><td>Ֆուրյեի շարք</td></tr>
+      <tr><td><b>Fourier transform</b></td><td>Ֆուրյեի ձևափոխություն</td></tr>
+      <tr><td><b>fractional part</b></td><td>կոտորակային մաս</td></tr>
+      <tr><td><b>Fréchet derivative</b></td><td>Ֆրեշեի ածանցյալ</td></tr>
+      <tr><td><b>Fredholm alternative</b></td><td>Ֆրեդհոլմի այլընտրանք</td></tr>
+      <tr><td><b>free boundary problem</b></td><td>ազատ եզրով խնդիր</td></tr>
+      <tr><td><b>free group</b></td><td>ազատ խումբ</td></tr>
+      <tr><td><b>free product</b></td><td>ազատ արտադրյալ</td></tr>
+      <tr><td><b>free variable</b></td><td>ազատ փոփոխական</td></tr>
+      <tr><td><b>free vector</b></td><td>ազատ վեկտոր</td></tr>
+      <tr><td><b>frequency</b></td><td>հաճախություն</td></tr>
+      <tr><td><b>function</b></td><td>ֆունկցիա</td></tr>
+      <tr><td><b>functional</b></td><td>ֆունկցիոնալ</td></tr>
+      <tr><td><b>functor</b></td><td>ֆունկտոր</td></tr>
+      <tr><td><b>fundamental group</b></td><td>ֆունդամենտալ խումբ</td></tr>
+      <tr><td><b>fundamental solution</b></td><td>հիմնարար լուծում</td></tr>
+      <tr><td><b>fundamental theorem of calculus</b></td><td>Նյուտոն-Լայբնիցի բանաձև</td></tr>
+      <tr><td><b>Galois theory</b></td><td>Գալուայի տեսություն</td></tr>
+      <tr><td><b>gamma distribution</b></td><td>գամմա բաշխում</td></tr>
+      <tr><td><b>Gâteaux derivative</b></td><td>Գատոյի ածանցյալ</td></tr>
+      <tr><td><b>Gauss-Seidel method</b></td><td>Գաուս-Զեյդելի մեթոդ</td></tr>
+      <tr><td><b>Gaussian process</b></td><td>գաուսյան պրոցես</td></tr>
+      <tr><td><b>general solution</b></td><td>ընդհանուր լուծում</td></tr>
+      <tr><td><b>general term</b></td><td>ընդհանուր անդամ</td></tr>
+      <tr><td><b>generalized function</b></td><td>ընդհանրացված ֆունկցիա</td></tr>
+      <tr><td><b>generating set</b></td><td>ծնիչ/ծնորդ բազմություն</td></tr>
+      <tr><td><b>generator</b></td><td>ծնիչ, ծնորդ</td></tr>
+      <tr><td><b>genus</b></td><td>սեռ</td></tr>
+      <tr><td><b>geodesic</b></td><td>գեոդեզիկ</td></tr>
+      <tr><td><b>geometric distribution</b></td><td>երկրաչափական բաշխում</td></tr>
+      <tr><td><b>geometric mean</b></td><td>միջին երկրաչափական</td></tr>
+      <tr><td><b>global extremum</b></td><td>գլոբալ էքստրեմում</td></tr>
+      <tr><td><b>gradient</b></td><td>գրադիենտ</td></tr>
+      <tr><td><b>gradient descent</b></td><td>գրադիենտային վայրէջք</td></tr>
+      <tr><td><b>Gram matrix</b></td><td>Գրամի մատրից</td></tr>
+      <tr><td><b>graph</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>գրաֆ (կոմբինատորիկա)</li><li>գրաֆիկ (ֆունկցիայի)</li></ol></td></tr>
+      <tr><td><b>graph homomorphism</b></td><td>գրաֆների հոմոմորֆիզմ</td></tr>
+      <tr><td><b>graph traversal</b></td><td>գրաֆի շրջանցում</td></tr>
+      <tr><td><b>greatest common divisor</b></td><td>ամենամեծ ընդհանուր բաժանարար</td></tr>
+      <tr><td><b>greedy algorithm</b></td><td>ագահ ալգորիթմ</td></tr>
+      <tr><td><b>group</b></td><td>խումբ</td></tr>
+      <tr><td><b>group action</b></td><td>խմբի ազդեցություն</td></tr>
+      <tr><td><b>group homomorphism</b></td><td>խմբերի հոմոմորֆիզմ</td></tr>
+      <tr><td><b>group operation</b></td><td>խմբի գործողություն</td></tr>
+      <tr><td><b>grouping</b></td><td>խմբավորում</td></tr>
+      <tr><td><b>groupoid</b></td><td>խմբոիդ, խմբակերպ</td></tr>
+      <tr><td><b>half-open / half-closed</b></td><td>կիսաբաց / կիսափակ</td></tr>
+      <tr><td><b>half-plane</b></td><td>կիսահարթություն</td></tr>
+      <tr><td><b>half-space</b></td><td>կիսատարածություն</td></tr>
+      <tr><td><b>Hardy-Littlewood maximal function</b></td><td>Հարդի-Լիթլվուդի մաքսիմալ ֆունկցիա</td></tr>
+      <tr><td><b>harmonic conjugate</b></td><td>հարմոնիկ համալուծ</td></tr>
+      <tr><td><b>harmonic function</b></td><td>հարմոնիկ ֆունկցիա</td></tr>
+      <tr><td><b>harmonic mean</b></td><td>միջին հարմոնիկ</td></tr>
+      <tr><td><b>Hausdorff space</b></td><td>հաուսդորֆյան տարածություն</td></tr>
+      <tr><td><b>heat equation</b></td><td>ջերմահաղորդականության հավասարում</td></tr>
+      <tr><td><b>hemisphere </b></td><td>կիսագունդ, կիսասֆերա</td></tr>
+      <tr><td><b>hereditary property</b></td><td>ժառանգական հատկություն</td></tr>
+      <tr><td><b>Hermitian matrix</b></td><td>էրմիտյան մատրից</td></tr>
+      <tr><td><b>Hessian matrix</b></td><td>հեսիան մատրից</td></tr>
+      <tr><td><b>higher-order derivatives</b></td><td>բարձր կարգի ածանցյալներ</td></tr>
+      <tr><td><b>Hilbert space</b></td><td>հիլբերտյան տարածություն</td></tr>
+      <tr><td><b>Hilbert transform</b></td><td>Հիլբերտի ձևափոխություն</td></tr>
+      <tr><td><b>holomorphic function</b></td><td>հոլոմորֆ ֆունկցիա</td></tr>
+      <tr><td><b>homeomorphism</b></td><td>հոմեոմորֆիզմ</td></tr>
+      <tr><td><b>homogeneous</b></td><td>համասեռ</td></tr>
+      <tr><td><b>homology</b></td><td>հոմոլոգիա</td></tr>
+      <tr><td><b>homology group</b></td><td>հոմոլոգիական խումբ</td></tr>
+      <tr><td><b>homotopy</b></td><td>հոմոտոպիա</td></tr>
+      <tr><td><b>homotopy equivalence</b></td><td>հոմոտոպիական համարժեքություն</td></tr>
+      <tr><td><b>horizontal asymptote</b></td><td>հորիզոնական ասիմպտոտ</td></tr>
+      <tr><td><b>hyperbolic</b></td><td>հիպերբոլական</td></tr>
+      <tr><td><b>hypergeometric</b></td><td>հիպերերկրաչափական</td></tr>
+      <tr><td><b>hyperplane</b></td><td>հիպերհարթություն</td></tr>
+      <tr><td><b>hypersurface</b></td><td>հիպերմակերևույթ</td></tr>
+      <tr><td><b>hypotenuse</b></td><td>ներքնաձիգ</td></tr>
+      <tr><td><b>hypothesis testing</b></td><td>վարկածների ստուգում</td></tr>
+      <tr><td><b>ideal</b></td><td>իդեալ</td></tr>
+      <tr><td><b>idempotent</b></td><td>իդեմպոտենտ</td></tr>
+      <tr><td><b>identically distributed</b></td><td>միատեսակ բաշխված</td></tr>
+      <tr><td><b>identically zero</b></td><td>նույնաբար զրո</td></tr>
+      <tr><td><b>identification</b></td><td>նույնացում</td></tr>
+      <tr><td><b>identity</b></td><td>նույնություն</td></tr>
+      <tr><td><b>identity map</b></td><td>նույնական արտապատկերում</td></tr>
+      <tr><td><b>identity matrix</b></td><td>միավոր մատրից</td></tr>
+      <tr><td><b>if and only if (iff)</b></td><td>այն և միայն այն դեպքում</td></tr>
+      <tr><td><b>image</b></td><td>պատկեր</td></tr>
+      <tr><td><b>imaginary part</b></td><td>կեղծ մաս</td></tr>
+      <tr><td><b>immersion</b></td><td>ընկղմում</td></tr>
+      <tr><td><b>implicit</b></td><td>անբացահայտ</td></tr>
+      <tr><td><b>implicit function theorem</b></td><td>անբացահայտ ֆունկցիայի թեորեմ</td></tr>
+      <tr><td><b>improper integral</b></td><td>անիսկական ինտեգրալ</td></tr>
+      <tr><td><b>improper integral depending on parameters</b></td><td>պարամետրից կախված անիսկական ինտեգրալ (ՊԿԱԻ)</td></tr>
+      <tr><td><b>incidence matrix</b></td><td>կցության մատրից</td></tr>
+      <tr><td><b>incident </b></td><td>կից</td></tr>
+      <tr><td><b>inclusion</b></td><td>պարունակում</td></tr>
+      <tr><td><b>inclusion [partial] order</b></td><td>ըստ պարունակման [մասնակի] կարգ</td></tr>
+      <tr><td><b>inclusion-exclusion principle</b></td><td>կցման-արտաքսման սկզբունք</td></tr>
+      <tr><td><b>incompleteness</b></td><td>ոչ լրիվություն</td></tr>
+      <tr><td><b>increasing</b></td><td>աճող</td></tr>
+      <tr><td><b>indefinite </b></td><td>անորոշ</td></tr>
+      <tr><td><b>independence</b></td><td>անկախություն</td></tr>
+      <tr><td><b>independent and identically distributed (i.i.d.)</b></td><td>անկախ և միատեսակ բաշխված</td></tr>
+      <tr><td><b>independent random variables</b></td><td>անկախ պատահական մեծություններ</td></tr>
+      <tr><td><b>index of a subgroup</b></td><td>ենթախմբի ինդեքս</td></tr>
+      <tr><td><b>indexed family</b></td><td>ինդեքսավորված ընտանիք</td></tr>
+      <tr><td><b>indicator function</b></td><td>ինդիկատոր ֆունկցիա</td></tr>
+      <tr><td><b>induced metric</b></td><td>մակածված մետրիկա</td></tr>
+      <tr><td><b>induction</b></td><td>ինդուկցիա</td></tr>
+      <tr><td><b>infimum</b></td><td>ինֆիմում, ճշգրիտ ստորին եզր</td></tr>
+      <tr><td><b>infinite product</b></td><td>անվերջ արտադրյալ</td></tr>
+      <tr><td><b>infinite set</b></td><td>անվերջ բազմություն</td></tr>
+      <tr><td><b>infinite sum</b></td><td>անվերջ գումար</td></tr>
+      <tr><td><b>infinite-dimensional</b></td><td>անվերջ չափանի</td></tr>
+      <tr><td><b>infinitesimal</b></td><td>անվերջ փոքր</td></tr>
+      <tr><td><b>infinity</b></td><td>անվերջություն, անսահմանություն</td></tr>
+      <tr><td><b>inflection point</b></td><td>շրջման կետ</td></tr>
+      <tr><td><b>inhomogeneous</b></td><td>տարասեռ</td></tr>
+      <tr><td><b>initial condition</b></td><td>սկզբնական պայման</td></tr>
+      <tr><td><b>initial value problem (IVP)</b></td><td>Կոշիի խնդիր, <i>երբեմն նաև՝</i> սկզբնական խնդիր</td></tr>
+      <tr><td><b>injective</b></td><td>ինյեկտիվ</td></tr>
+      <tr><td><b>inner product</b></td><td>ներքին արտադրյալ, սկալյար արտադրյալ</td></tr>
+      <tr><td><b>inscribed</b></td><td>ներգծած</td></tr>
+      <tr><td><b>integer</b></td><td>ամբողջ թիվ (որպես գոյական), ամբողջ, ամբողջաթվային (որպես ածական)</td></tr>
+      <tr><td><b>integer-valued</b></td><td>ամբողջարժեք</td></tr>
+      <tr><td><b>integrable</b></td><td>ինտեգրելի</td></tr>
+      <tr><td><b>integral</b></td><td>ինտեգրալ</td></tr>
+      <tr><td><b>integral depending on parameters</b></td><td>պարամետրից կախված ինտեգրալ (ՊԿԻ)</td></tr>
+      <tr><td><b>integral domain</b></td><td>ամբողջության տիրույթ</td></tr>
+      <tr><td><b>integral part</b></td><td>ամբողջ մաս</td></tr>
+      <tr><td><b>integration by parts</b></td><td>մասերով ինտեգրում</td></tr>
+      <tr><td><b>interior</b></td><td>ներքնամաս</td></tr>
+      <tr><td><b>intermediate value theorem</b></td><td>միջին արժեքի թեորեմ</td></tr>
+      <tr><td><b>internal point</b></td><td>ներքին կետ</td></tr>
+      <tr><td><b>interpolation</b></td><td>ինտերպոլացիա</td></tr>
+      <tr><td><b>intersection</b></td><td>հատում</td></tr>
+      <tr><td><b>interval estimate</b></td><td>միջակայքային գնատահական</td></tr>
+      <tr><td><b>invariant</b></td><td>ինվարիանտ</td></tr>
+      <tr><td><b>inverse</b></td><td>հակադարձ</td></tr>
+      <tr><td><b>inverse function theorem</b></td><td>հակադարձ ֆունկցիայի թեորեմ</td></tr>
+      <tr><td><b>inverse image</b></td><td>նախապատկեր</td></tr>
+      <tr><td><b>inversely proportional</b></td><td>հակադարձ համեմատական</td></tr>
+      <tr><td><b>invertible</b></td><td>հակադարձելի</td></tr>
+      <tr><td><b>irrational</b></td><td>իռացիոնալ</td></tr>
+      <tr><td><b>irreducible fraction</b></td><td>անկրճատելի կոտորակ</td></tr>
+      <tr><td><b>irreducible polynomial</b></td><td>չբերվող բազմանդամ</td></tr>
+      <tr><td><b>isolated point</b></td><td>մեկուսացված կետ</td></tr>
+      <tr><td><b>isolated singular point</b></td><td>մեկուսացված եզակի կետ</td></tr>
+      <tr><td><b>isometric</b></td><td>իզոմետրիկ</td></tr>
+      <tr><td><b>isometry</b></td><td>իզոմետրիա</td></tr>
+      <tr><td><b>isomorphic</b></td><td>իզոմորֆ</td></tr>
+      <tr><td><b>isomorphism</b></td><td>իզոմորֆիզմ</td></tr>
+      <tr><td><b>isosceles</b></td><td>հավասարասրուն</td></tr>
+      <tr><td><b>iterated limit</b></td><td>հաջորդական սահման</td></tr>
+      <tr><td><b>iterative method</b></td><td>իտերատիվ մեթոդ, <i>երբեմն նաև՝</i> կրկնատեղադրման մեթոդ</td></tr>
+      <tr><td><b>Itô integral</b></td><td>Իտոյի ինտեգրալ</td></tr>
+      <tr><td><b>Jacobian</b></td><td>յակոբիան</td></tr>
+      <tr><td><b>joint distribution</b></td><td>համատեղ բաշխում</td></tr>
+      <tr><td><b>Jordan canonical form</b></td><td>ժորդանյան նորմալ տեսք, ժորդանյան կանոնական տեսք</td></tr>
+      <tr><td><b>Jordan curve</b></td><td>ժորդանյան կոր</td></tr>
+      <tr><td><b>Jordan decomposition</b></td><td>Ժորդանի վերլուծություն</td></tr>
+      <tr><td><b>jump</b></td><td>թռիչք</td></tr>
+      <tr><td><b>kernel</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>միջուկ (արտապատկերման զրոների դեպքում)</li><li>կորիզ (ինտեգրալ օպերատորի դեպքում)</li></ol></td></tr>
+      <tr><td><b>Klein bottle</b></td><td>Քլայնի շիշ</td></tr>
+      <tr><td><b>Kuratowski closure operator</b></td><td>Կուրատովսկու փակման գործողություն</td></tr>
+      <tr><td><b>L'Hôpital's rule</b></td><td>Լոպիտալի կանոն</td></tr>
+      <tr><td><b>Lagrange multipliers</b></td><td>Լագրանժի բազմապատկիչներ</td></tr>
+      <tr><td><b>Laplace transform</b></td><td>Լապլասի ձևափոխություն</td></tr>
+      <tr><td><b>Laplace-Beltrami operator</b></td><td>Լապլաս-Բելտրամիի օպերատոր</td></tr>
+      <tr><td><b>lattice</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>ցանց (տարածության քանորդ, ինչպես $\mathbb{Z}^n$-ը)</li><li>կավար (մասնակի կարգի տեսակ)</li></ol></td></tr>
+      <tr><td><b>Laurent series</b></td><td>Լորանի շարք</td></tr>
+      <tr><td><b>law of large numbers</b></td><td>մեծ թվերի օրենք</td></tr>
+      <tr><td><b>leading coefficient</b></td><td>ավագ անդամ</td></tr>
+      <tr><td><b>least common multiple</b></td><td>ամենափոքր ընդհանուր բազմապատիկ</td></tr>
+      <tr><td><b>least squares method</b></td><td>փոքրագույն քառակուսիների մեթոդ</td></tr>
+      <tr><td><b>Lebesgue integral</b></td><td>Լեբեգի ինտեգրալ</td></tr>
+      <tr><td><b>Lebesgue measure</b></td><td>Լեբեգի չափ</td></tr>
+      <tr><td><b>Lebesgue space</b></td><td>Լեբեգի տարածություն</td></tr>
+      <tr><td><b>left-continuous</b></td><td>ձախից անընդհատ</td></tr>
+      <tr><td><b>leg</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>սրունք (հավասարասրուն եռանկյան մեջ)</li><li>էջ (ուղղանկյուն եռանկյան մեջ)</li></ol></td></tr>
+      <tr><td><b>level curve</b></td><td>մակարդակի գիծ</td></tr>
+      <tr><td><b>Levi-Civita connection</b></td><td>Լևի-Չիվիտայի կապակցություն</td></tr>
+      <tr><td><b>Lévy process</b></td><td>Լևիի պրոցես</td></tr>
+      <tr><td><b>Lie algebra</b></td><td>Լիի հանրահաշիվ</td></tr>
+      <tr><td><b>likelihood</b></td><td>ճշմարտանմանություն</td></tr>
+      <tr><td><b>limit</b></td><td>սահման</td></tr>
+      <tr><td><b>limit inferior</b></td><td>ստորին սահման</td></tr>
+      <tr><td><b>limit point</b></td><td>սահմանային կետ</td></tr>
+      <tr><td><b>limit superior</b></td><td>վերին սահման</td></tr>
+      <tr><td><b>line</b></td><td>ուղիղ</td></tr>
+      <tr><td><b>line segment</b></td><td>հատված</td></tr>
+      <tr><td><b>linear algebra</b></td><td>գծային հանրահաշիվ</td></tr>
+      <tr><td><b>linear combination</b></td><td>գծային զուգակցություն/կոմբինացիա</td></tr>
+      <tr><td><b>linear dependence</b></td><td>գծային կախվածություն</td></tr>
+      <tr><td><b>linear form</b></td><td>գծային ձև</td></tr>
+      <tr><td><b>linear fractional transformation</b></td><td>կոտորակագծային ձևափոխություն</td></tr>
+      <tr><td><b>linear independence</b></td><td>գծային անկախություն</td></tr>
+      <tr><td><b>linear map</b></td><td>գծային արտապատկերում</td></tr>
+      <tr><td><b>linear operator</b></td><td>գծային օպերատոր</td></tr>
+      <tr><td><b>linear programming</b></td><td>գծային ծրագրավորում</td></tr>
+      <tr><td><b>linear regression</b></td><td>գծային ռեգրեսիա</td></tr>
+      <tr><td><b>linear transformation</b></td><td>գծային ձևափոխություն</td></tr>
+      <tr><td><b>linearization</b></td><td>գծայնացում</td></tr>
+      <tr><td><b>linearly dependent</b></td><td>գծորեն կախված/կախյալ</td></tr>
+      <tr><td><b>linearly independent</b></td><td>գծորեն անկախ</td></tr>
+      <tr><td><b>Lipschitz continuous</b></td><td>Լիպշիցի պայմանին բավարարող, Լիպշիցի դասին պատկանող, Լիպշից-անընդհատ</td></tr>
+      <tr><td><b>Littlewood-Paley theory</b></td><td>Լիթլվուդ-Փեյլիի տեսություն</td></tr>
+      <tr><td><b>local extremum</b></td><td>լոկալ էքստրեմում</td></tr>
+      <tr><td><b>localization</b></td><td>լոկալիզացիա, տեղայնացում</td></tr>
+      <tr><td><b>locally compact</b></td><td>լոկալ կոմպակտ</td></tr>
+      <tr><td><b>locus</b></td><td>[կետերի] երկրաչափական տեղ</td></tr>
+      <tr><td><b>loop </b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>մերակ, փակ ուղի (տոպոլոգիական տարածությունում)</li><li>ցիկլ (ալգորիթմում)</li></ol></td></tr>
+      <tr><td><b>loss function</b></td><td>կորստի ֆունկցիա</td></tr>
+      <tr><td><b>lower bound</b></td><td>ստորին եզր</td></tr>
+      <tr><td><b>lower semicontinuous</b></td><td>ներքևից կիսաանընդհատ</td></tr>
+      <tr><td><b>lower triangular matrix</b></td><td>ստորին եռանկյունաձև մատրից</td></tr>
+      <tr><td><b>LU decomposition</b></td><td>LU վերլուծություն</td></tr>
+      <tr><td><b>Maclaurin series</b></td><td>Մակլորենի շարք</td></tr>
+      <tr><td><b>manifold</b></td><td>բազմաձևություն</td></tr>
+      <tr><td><b>manifold with boundary</b></td><td>եզրով բազմաձևություն</td></tr>
+      <tr><td><b>manifold without boundary</b></td><td>անեզր բազմաձևություն</td></tr>
+      <tr><td><b>Markov chain</b></td><td>մարկովյան շղթա</td></tr>
+      <tr><td><b>Markov inequality</b></td><td>Մարկովի անհավասարություն</td></tr>
+      <tr><td><b>martingale</b></td><td>մարտինգալ</td></tr>
+      <tr><td><b>mathematical logic</b></td><td>մաթեմատիկական տրամաբանություն</td></tr>
+      <tr><td><b>matrix</b></td><td>մատրից</td></tr>
+      <tr><td><b>matrix exponential</b></td><td>մատրիցի էքսպոնենտ</td></tr>
+      <tr><td><b>matrix group</b></td><td>մատրիցային խումբ</td></tr>
+      <tr><td><b>maximal element</b></td><td>մաքսիմալ տարր</td></tr>
+      <tr><td><b>maximal operator</b></td><td>մաքսիմալ օպերատոր</td></tr>
+      <tr><td><b>maximum likelihood</b></td><td>ճշմարտանմանության մաքսիմում</td></tr>
+      <tr><td><b>maximum principle</b></td><td>մաքսիմումի սկզբունք</td></tr>
+      <tr><td><b>meager set</b></td><td>չնչին բազմություն, 1-ին կատեգորիայի բազմություն</td></tr>
+      <tr><td><b>mean curvature</b></td><td>միջին կորություն</td></tr>
+      <tr><td><b>mean squared error (MSE)</b></td><td>միջին քառակուսային սխալանք</td></tr>
+      <tr><td><b>mean value theorem</b></td><td>[Լագրանժի] վերջավոր աճերի բանաձև</td></tr>
+      <tr><td><b>measurable function</b></td><td>չափելի ֆունկցիա</td></tr>
+      <tr><td><b>measurable set</b></td><td>չափելի բազմություն</td></tr>
+      <tr><td><b>measurable space</b></td><td>չափելի տարածություն</td></tr>
+      <tr><td><b>measure</b></td><td>չափ</td></tr>
+      <tr><td><b>measure preserving</b></td><td>չափը պահպանող</td></tr>
+      <tr><td><b>measure space</b></td><td>չափով [օժտված] տարածություն</td></tr>
+      <tr><td><b>measure theory</b></td><td>չափի տեսություն</td></tr>
+      <tr><td><b>median</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>միջնագիծ (երկրաչափություն)</li><li>մեդիան (վիճակագրություն)</li></ol></td></tr>
+      <tr><td><b>memoryless</b></td><td>հիշողություն չունեցող, առանց հիշողության</td></tr>
+      <tr><td><b>meromorphic function</b></td><td>մերոմորֆ ֆունկցիա</td></tr>
+      <tr><td><b>metric</b></td><td>մետրիկա</td></tr>
+      <tr><td><b>metric space</b></td><td>մետրիկական տարածություն</td></tr>
+      <tr><td><b>midpoint </b></td><td>միջնակետ</td></tr>
+      <tr><td><b>minimal polynomial</b></td><td>մինիմալ բազմանդամ</td></tr>
+      <tr><td><b>minimal surface</b></td><td>մինիմալ մակերևույթ</td></tr>
+      <tr><td><b>minor</b></td><td>մինոր</td></tr>
+      <tr><td><b>mixed boundary condition </b></td><td>խառը եզրային պայման</td></tr>
+      <tr><td><b>mixed derivative</b></td><td>խառը ածանցյալ</td></tr>
+      <tr><td><b>Möbius inversion formula</b></td><td>Մյոբիուսի շրջման բանաձև</td></tr>
+      <tr><td><b>Möbius strip</b></td><td>Մյոբիուսի թերթ</td></tr>
+      <tr><td><b>Möbius transformation</b></td><td>Մյոբիուսի ձևափոխություն</td></tr>
+      <tr><td><b>model</b></td><td>մոդել</td></tr>
+      <tr><td><b>module</b></td><td>մոդուլ</td></tr>
+      <tr><td><b>modulus</b></td><td>մոդուլ, բացարձակ արժեք</td></tr>
+      <tr><td><b>modulus of continuity</b></td><td>անընդհատության մոդուլ</td></tr>
+      <tr><td><b>moment</b></td><td>մոմենտ</td></tr>
+      <tr><td><b>monomial</b></td><td>միանդամ</td></tr>
+      <tr><td><b>monotone convergence theorem</b></td><td>Բ․ Լևիի թեորեմ, մոնոտոն զուգամիտության թեորեմ</td></tr>
+      <tr><td><b>monotone function</b></td><td>մոնոտոն ֆունկցիա</td></tr>
+      <tr><td><b>morphism</b></td><td>մորֆիզմ</td></tr>
+      <tr><td><b>multiindex</b></td><td>մուլտիինդեքս</td></tr>
+      <tr><td><b>multilinear map</b></td><td>բազմագծային արտապատկերում</td></tr>
+      <tr><td><b>multiple integral</b></td><td>բազմակի ինտեգրալ</td></tr>
+      <tr><td><b>multiple root</b></td><td>պատիկ արմատ</td></tr>
+      <tr><td><b>multiplicative</b></td><td>մուլտիպլիկատիվ, <i>երբեմն նաև՝</i> արտադրյալային</td></tr>
+      <tr><td><b>multiplicative group</b></td><td>արտադրյալային խումբ</td></tr>
+      <tr><td><b>multiplicity</b></td><td>պատիկություն</td></tr>
+      <tr><td><b>multiply connected</b></td><td>բազմակապ</td></tr>
+      <tr><td><b>multiset</b></td><td>մուլտիբազմություն</td></tr>
+      <tr><td><b>multivalued</b></td><td>բազմարժեք</td></tr>
+      <tr><td><b>multivariable calculus</b></td><td>շատ/մի քանի փոփոխականի հաշիվ</td></tr>
+      <tr><td><b>mutual information</b></td><td>փոխադարձ ինֆորմացիա</td></tr>
+      <tr><td><b>mutually exclusive</b></td><td>անհամատեղելի, միմյանց բացառող</td></tr>
+      <tr><td><b>natural isomorphism</b></td><td>բնական իզոմորֆիզմ</td></tr>
+      <tr><td><b>natural number</b></td><td>բնական թիվ</td></tr>
+      <tr><td><b>natural parametrization</b></td><td>բնական պարամետրացում</td></tr>
+      <tr><td><b>natural transformation</b></td><td>բնական ձևափոխություն</td></tr>
+      <tr><td><b>Navier-Stokes equations</b></td><td>Նավյե-Ստոքսի հավասարումներ</td></tr>
+      <tr><td><b>necessary and sufficient condition</b></td><td>անհրաժեշտ և բավարար պայման</td></tr>
+      <tr><td><b>negation</b></td><td>ժխտում</td></tr>
+      <tr><td><b>negative definite</b></td><td>բացասական որոշյալ</td></tr>
+      <tr><td><b>negative semidefinite</b></td><td>բացասական կիսաորոշյալ</td></tr>
+      <tr><td><b>neighborhood base</b></td><td>շրջակայքերի բազա</td></tr>
+      <tr><td><b>nested intervals</b></td><td>ներդրված հատվածներ</td></tr>
+      <tr><td><b>Neumann boundary condition</b></td><td>Նեյմանի եզրային պայման</td></tr>
+      <tr><td><b>neutral element</b></td><td>չեզոք տարր/էլեմենտ</td></tr>
+      <tr><td><b>nilpotent</b></td><td>նիլպոտենտ</td></tr>
+      <tr><td><b>node</b></td><td>հանգույց</td></tr>
+      <tr><td><b>Noetherian ring</b></td><td>նյոթերյան օղակ</td></tr>
+      <tr><td><b>non-decreasing</b></td><td>չնվազող</td></tr>
+      <tr><td><b>non-degenerate</b></td><td>չվերասերված</td></tr>
+      <tr><td><b>non-empty</b></td><td>ոչ դատարկ</td></tr>
+      <tr><td><b>non-increasing</b></td><td>չաճող</td></tr>
+      <tr><td><b>non-linear</b></td><td>ոչ գծային</td></tr>
+      <tr><td><b>non-zero</b></td><td>ոչ զրոյական, զրոյից տարբեր</td></tr>
+      <tr><td><b>norm</b></td><td>նորմ</td></tr>
+      <tr><td><b>normal distribution</b></td><td>նորմալ բաշխում</td></tr>
+      <tr><td><b>normal subgroup</b></td><td>նորմալ ենթախումբ</td></tr>
+      <tr><td><b>normalizer</b></td><td>նորմալիզատոր</td></tr>
+      <tr><td><b>normed space</b></td><td>նորմավորված տարածություն</td></tr>
+      <tr><td><b>nowhere dense</b></td><td>ամենուրեք նոսր</td></tr>
+      <tr><td><b>null hypothesis</b></td><td>զրոյական վարկած</td></tr>
+      <tr><td><b>null set</b></td><td>զրո չափի բազմություն</td></tr>
+      <tr><td><b>null space</b></td><td>միջուկ, զրոյական տարածություն</td></tr>
+      <tr><td><b>nullity</b></td><td>դեֆեկտ</td></tr>
+      <tr><td><b>number theory</b></td><td>թվերի տեսություն</td></tr>
+      <tr><td><b>numerator</b></td><td>համարիչ</td></tr>
+      <tr><td><b>numerical differentiation</b></td><td>թվային ածանցում</td></tr>
+      <tr><td><b>numerical integration</b></td><td>թվային ինտեգրում</td></tr>
+      <tr><td><b>object</b></td><td>օբյեկտ</td></tr>
+      <tr><td><b>oblique asymptote</b></td><td>թեք ասիմպտոտ</td></tr>
+      <tr><td><b>octonion</b></td><td>օկտոնիոն</td></tr>
+      <tr><td><b>odd</b></td><td>կենտ</td></tr>
+      <tr><td><b>one-sheeted</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>միաթերթ (ծածկոց)</li><li>միախոռոչ (հիպերբոլոիդ)</li></ol></td></tr>
+      <tr><td><b>one-sided limit</b></td><td>միակողմանի սահման</td></tr>
+      <tr><td><b>open cover</b></td><td>բաց ծածկույթ</td></tr>
+      <tr><td><b>open interval</b></td><td>բաց միջակայք</td></tr>
+      <tr><td><b>open map</b></td><td>բաց արտապատկերում</td></tr>
+      <tr><td><b>open mapping theorem</b></td><td>բաց արտապատկերման [մասին] թեորեմ</td></tr>
+      <tr><td><b>open set</b></td><td>բաց բազմություն</td></tr>
+      <tr><td><b>operator norm</b></td><td>օպերատորային նորմ</td></tr>
+      <tr><td><b>opposite vector</b></td><td>հակադիր վեկտոր</td></tr>
+      <tr><td><b>optimal control</b></td><td>օպտիմալ կառավարում</td></tr>
+      <tr><td><b>optimization</b></td><td>օպտիմիզացիա</td></tr>
+      <tr><td><b>orbit</b></td><td>ուղեծիր</td></tr>
+      <tr><td><b>order</b></td><td>կարգ, կարգավորվածություն</td></tr>
+      <tr><td><b>order of a group</b></td><td>խմբի կարգ</td></tr>
+      <tr><td><b>order of an element</b></td><td>տարրի կարգ</td></tr>
+      <tr><td><b>order statistic</b></td><td>կարգային վիճականի</td></tr>
+      <tr><td><b>ordinary differential equation</b></td><td>սովորական դիֆերենցիալ հավասարում</td></tr>
+      <tr><td><b>orientable</b></td><td>կողմնորոշելի</td></tr>
+      <tr><td><b>orientation</b></td><td>կողմնորոշում</td></tr>
+      <tr><td><b>oriented</b></td><td>կողմնորոշված</td></tr>
+      <tr><td><b>origin</b></td><td>սկզբնակետ</td></tr>
+      <tr><td><b>orthocenter</b></td><td>օրթոկենտրոն</td></tr>
+      <tr><td><b>orthogonal basis</b></td><td>օրթոգոնալ հենք/բազիս</td></tr>
+      <tr><td><b>orthogonal complement</b></td><td>օրթոգոնալ լրացում</td></tr>
+      <tr><td><b>orthogonal matrix</b></td><td>օրթոգոնալ մատրից</td></tr>
+      <tr><td><b>orthonormal basis</b></td><td>օրթոնորմալ հենք/բազիս</td></tr>
+      <tr><td><b>oscillation</b></td><td>տատանում</td></tr>
+      <tr><td><b>osculating plane</b></td><td>հպման հարթություն</td></tr>
+      <tr><td><b>outcome</b></td><td>[տարրական] ելք</td></tr>
+      <tr><td><b>outer measure</b></td><td>արտաքին չափ</td></tr>
+      <tr><td><b>pairwise</b></td><td>զույգ առ զույգ</td></tr>
+      <tr><td><b>parabolic</b></td><td>պարաբոլական</td></tr>
+      <tr><td><b>parallel</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>համուղղված (վեկտորների դեպքում)</li><li>զուգահեռ (ուղիղների դեպքում)</li></ol></td></tr>
+      <tr><td><b>parallel transport</b></td><td>զուգահեռ տեղափոխություն</td></tr>
+      <tr><td><b>parallelepiped </b></td><td>զուգահեռանիստ</td></tr>
+      <tr><td><b>parallelogram</b></td><td>զուգահեռագիծ</td></tr>
+      <tr><td><b>Parseval's identity</b></td><td>Պարսևալի նույնություն</td></tr>
+      <tr><td><b>partial derivative</b></td><td>մասնակի ածանցյալ</td></tr>
+      <tr><td><b>partial differential equation</b></td><td>մասնակի ածանցյալով [դիֆերենցիալ] հավասարում</td></tr>
+      <tr><td><b>partial limit</b></td><td>մասնակի սահման</td></tr>
+      <tr><td><b>partial sum</b></td><td>մասնակի գումար</td></tr>
+      <tr><td><b>partially ordered</b></td><td>մասնակի կարգավորված</td></tr>
+      <tr><td><b>particular solution</b></td><td>մասնավոր լուծում</td></tr>
+      <tr><td><b>partition</b></td><td>տրոհում</td></tr>
+      <tr><td><b>partition of unity</b></td><td>միավորի տրոհում</td></tr>
+      <tr><td><b>path</b></td><td>ուղի</td></tr>
+      <tr><td><b>path independence</b></td><td>ճանապարհից անկախություն</td></tr>
+      <tr><td><b>path integral</b></td><td>կորով ինտեգրալ</td></tr>
+      <tr><td><b>path-connected</b></td><td>գծային կապակցված</td></tr>
+      <tr><td><b>pencil of lines</b></td><td>ուղիղների փունջ</td></tr>
+      <tr><td><b>perfect number</b></td><td>կատարյալ թիվ</td></tr>
+      <tr><td><b>perfect set</b></td><td>կատարյալ բազմություն</td></tr>
+      <tr><td><b>perimeter</b></td><td>պարագիծ</td></tr>
+      <tr><td><b>period</b></td><td>պարբերություն</td></tr>
+      <tr><td><b>periodic</b></td><td>պարբերական</td></tr>
+      <tr><td><b>permutation</b></td><td>տեղադրություն, <i>երբեմն նաև՝</i> տեղափոխություն (որևէ կոնկրետ դասավորություն նկատի ունենալիս)</td></tr>
+      <tr><td><b>perpendicular</b></td><td>ուղղահայաց, փոխուղղահայաց</td></tr>
+      <tr><td><b>perpendicular bisector </b></td><td>միջնուղղահայաց</td></tr>
+      <tr><td><b>perturbation</b></td><td>խոտորում</td></tr>
+      <tr><td><b>piecewise constant</b></td><td>կտոր առ կտոր հաստատուն</td></tr>
+      <tr><td><b>piecewise continuous</b></td><td>կտոր առ կտոր անընդհատ</td></tr>
+      <tr><td><b>pigeonhole principle</b></td><td>Դիրիխլեի սկզբունք</td></tr>
+      <tr><td><b>planar graph</b></td><td>հարթ գրաֆ</td></tr>
+      <tr><td><b>plane curve</b></td><td>հարթ կոր</td></tr>
+      <tr><td><b>point estimate</b></td><td>կետային գնահատական</td></tr>
+      <tr><td><b>pointwise convergence</b></td><td>կետային/կետորեն զուգամիտություն</td></tr>
+      <tr><td><b>Poisson distribution</b></td><td>Պուասոնի բաշխում</td></tr>
+      <tr><td><b>Poisson kernel</b></td><td>Պուասոնի կորիզ</td></tr>
+      <tr><td><b>polar</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>բևեռագիծ (որպես գոյական)</li><li>բևեռային (որպես ածական)</li></ol></td></tr>
+      <tr><td><b>pole</b></td><td>բևեռ</td></tr>
+      <tr><td><b>Polish space</b></td><td>լեհական տարածություն</td></tr>
+      <tr><td><b>polygon</b></td><td>բազմանկյուն</td></tr>
+      <tr><td><b>polygonal chain</b></td><td>բեկյալ</td></tr>
+      <tr><td><b>polynomial</b></td><td>բազմանդամ</td></tr>
+      <tr><td><b>polynomial ring</b></td><td>բազմանդամային օղակ</td></tr>
+      <tr><td><b>position vector</b></td><td>շառավիղ-վեկտոր</td></tr>
+      <tr><td><b>positive definite</b></td><td>դրական որոշյալ</td></tr>
+      <tr><td><b>positive operator</b></td><td>դրական օպերատոր</td></tr>
+      <tr><td><b>positive semidefinite</b></td><td>դրական կիսաորոշյալ</td></tr>
+      <tr><td><b>power function</b></td><td>աստիճանային ֆունկցիա</td></tr>
+      <tr><td><b>power series</b></td><td>աստիճանային շարք</td></tr>
+      <tr><td><b>power set</b></td><td>բոլոր ենթաբազմությունների բազմություն, <i>երբեմն նաև՝</i> աստիճան բազմություն</td></tr>
+      <tr><td><b>precompact</b></td><td>նախակոմպակտ</td></tr>
+      <tr><td><b>predicate</b></td><td>պրեդիկատ</td></tr>
+      <tr><td><b>preimage</b></td><td>նախապատկեր</td></tr>
+      <tr><td><b>prime</b></td><td>պարզ</td></tr>
+      <tr><td><b>prime factorization</b></td><td>վերլուծում պարզ արտադրիչների</td></tr>
+      <tr><td><b>principal component analysis (PCA)</b></td><td>գլխավոր բաղադրիչների վերլուծություն</td></tr>
+      <tr><td><b>principal ideal</b></td><td>գլխավոր իդեալ</td></tr>
+      <tr><td><b>principal ideal domain</b></td><td>գլխավոր իդեալների տիրույթ</td></tr>
+      <tr><td><b>principal ideal ring</b></td><td>գլխավոր իդեալներով օղակ</td></tr>
+      <tr><td><b>principal part</b></td><td>գլխավոր մաս</td></tr>
+      <tr><td><b>principal value (p.v.)</b></td><td>գլխավոր արժեք</td></tr>
+      <tr><td><b>prism</b></td><td>պրիզմա, <i>երբեմն նաև՝</i> հատվածակողմ</td></tr>
+      <tr><td><b>probability density function</b></td><td>խտության ֆունկցիա</td></tr>
+      <tr><td><b>probability density function (pdf)</b></td><td>խտության ֆունկցիա</td></tr>
+      <tr><td><b>probability mass function (pmf)</b></td><td>հավանականային ֆունկցիա</td></tr>
+      <tr><td><b>probability measure</b></td><td>հավանականային չափ</td></tr>
+      <tr><td><b>probability space</b></td><td>հավանականային տարածություն</td></tr>
+      <tr><td><b>process</b></td><td>պրոցես</td></tr>
+      <tr><td><b>product</b></td><td>արտադրյալ</td></tr>
+      <tr><td><b>product rule</b></td><td>արտադրյալի կանոն</td></tr>
+      <tr><td><b>product topology</b></td><td>արտադրյալ տոպոլոգիա</td></tr>
+      <tr><td><b>projection</b></td><td>պրոյեկցիա</td></tr>
+      <tr><td><b>projective plane</b></td><td>պրոյեկտիվ հարթություն</td></tr>
+      <tr><td><b>projective space</b></td><td>պրոյեկտիվ տարածություն</td></tr>
+      <tr><td><b>proper subset</b></td><td>սեփական ենթաբազմություն</td></tr>
+      <tr><td><b>proposition</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>ասույթ (ճիշտ կամ սխալ պնդում)</li><li>պնդում, առաջադրություն</li></ol></td></tr>
+      <tr><td><b>propositional logic</b></td><td>ասույթների տրամաբանություն</td></tr>
+      <tr><td><b>pseudodifferential operator</b></td><td>պսևդոդիֆերենցիալ օպերատոր</td></tr>
+      <tr><td><b>pseudoinverse</b></td><td>պսևդոհակադարձ</td></tr>
+      <tr><td><b>punctured disk</b></td><td>դակված շրջան</td></tr>
+      <tr><td><b>pyramid</b></td><td>բուրգ</td></tr>
+      <tr><td><b>QR decomposition</b></td><td>QR վերլուծություն</td></tr>
+      <tr><td><b>quadratic form</b></td><td>քառակուսային ձև</td></tr>
+      <tr><td><b>quadrature formula</b></td><td>քառակուսեցման բանաձև</td></tr>
+      <tr><td><b>quadrilateral</b></td><td>քառանկյուն</td></tr>
+      <tr><td><b>quantifier</b></td><td>քվանտոր</td></tr>
+      <tr><td><b>quasigroup</b></td><td>քվազիխումբ</td></tr>
+      <tr><td><b>quasilinear</b></td><td>քվազիգծային </td></tr>
+      <tr><td><b>quaternion</b></td><td>քվատերնիոն</td></tr>
+      <tr><td><b>quotient group</b></td><td>քանորդ խումբ, ֆակտոր խումբ</td></tr>
+      <tr><td><b>quotient map</b></td><td>քանորդ/ֆակտոր արտապատկերում</td></tr>
+      <tr><td><b>quotient space</b></td><td>քանորդ/ֆակտոր տարածություն</td></tr>
+      <tr><td><b>quotient topology</b></td><td>քանորդ/ֆակտոր տոպոլոգիա</td></tr>
+      <tr><td><b>radial function</b></td><td>կենտրոնասիմետրիկ ֆունկցիա</td></tr>
+      <tr><td><b>radius</b></td><td>շառավիղ</td></tr>
+      <tr><td><b>radius of convergence</b></td><td>զուգամիտության շառավիղ</td></tr>
+      <tr><td><b>random variable</b></td><td>պատահական մեծություն</td></tr>
+      <tr><td><b>random walk</b></td><td>պատահական թափառում</td></tr>
+      <tr><td><b>range</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>արժեքների տիրույթ (ֆունկցիայի)</li><li>պատկեր (գծային ձևափոխության)</li><li>միջակայք</li></ol></td></tr>
+      <tr><td><b>rank</b></td><td>ռանգ</td></tr>
+      <tr><td><b>ratio test</b></td><td>Դալամբերի հայտանիշ</td></tr>
+      <tr><td><b>rational</b></td><td>ռացիոնալ</td></tr>
+      <tr><td><b>ray</b></td><td>ճառագայթ</td></tr>
+      <tr><td><b>real analysis</b></td><td>իրական անալիզ</td></tr>
+      <tr><td><b>real number</b></td><td>իրական թիվ</td></tr>
+      <tr><td><b>real part</b></td><td>իրական մաս</td></tr>
+      <tr><td><b>real-valued</b></td><td>իրականարժեք</td></tr>
+      <tr><td><b>rectangle</b></td><td>ուղղանկյուն</td></tr>
+      <tr><td><b>rectangular cuboid</b></td><td>ուղղանկյունանիստ</td></tr>
+      <tr><td><b>rectifiable</b></td><td>ուղղելի</td></tr>
+      <tr><td><b>recurrence relation</b></td><td>ռեկուրենտ առնչություն, <i>երբեմն նաև՝</i> անդրադարձ առնչություն</td></tr>
+      <tr><td><b>recursion</b></td><td>ռեկուրսիա</td></tr>
+      <tr><td><b>reduced row echelon form (rref)</b></td><td>բերված աստիճանաձև տեսք</td></tr>
+      <tr><td><b>reflection</b></td><td>արտացոլում</td></tr>
+      <tr><td><b>reflexive space</b></td><td>ռեֆլեքսիվ տարածություն</td></tr>
+      <tr><td><b>reflexivity</b></td><td>ռեֆլեքսիվություն, առինքնություն</td></tr>
+      <tr><td><b>regular curve</b></td><td>ռեգուլյար կոր</td></tr>
+      <tr><td><b>regularity</b></td><td>ռեգուլյարություն</td></tr>
+      <tr><td><b>relation</b></td><td>հարաբերություն</td></tr>
+      <tr><td><b>relative topology</b></td><td>հարաբերական տոպոլոգիա</td></tr>
+      <tr><td><b>relatively compact</b></td><td>հարաբերական կոմպակտ</td></tr>
+      <tr><td><b>remainder</b></td><td>մնացորդ</td></tr>
+      <tr><td><b>removable singular point</b></td><td>վերացնելի եզակի կետ</td></tr>
+      <tr><td><b>reparameterization</b></td><td>վերապարամետրացում</td></tr>
+      <tr><td><b>representation</b></td><td>ներկայացում</td></tr>
+      <tr><td><b>representation theory</b></td><td>ներկայացումների տեսություն</td></tr>
+      <tr><td><b>residue</b></td><td>մնացք</td></tr>
+      <tr><td><b>residue</b></td><td>մնացք</td></tr>
+      <tr><td><b>residue field</b></td><td>մնացքների դաշտ</td></tr>
+      <tr><td><b>residue theorem</b></td><td>մնացքների թեորեմ</td></tr>
+      <tr><td><b>resolvent</b></td><td>ռեզոլվենտ</td></tr>
+      <tr><td><b>resolvent set</b></td><td>ռեզոլվենտային բազմություն</td></tr>
+      <tr><td><b>restriction</b></td><td>սահմանափակում</td></tr>
+      <tr><td><b>rhombus </b></td><td>շեղանկյուն</td></tr>
+      <tr><td><b>Riemann hypothesis</b></td><td>Ռիմանի վարկած</td></tr>
+      <tr><td><b>Riemann integral</b></td><td>Ռիմանի ինտեգրալ</td></tr>
+      <tr><td><b>Riemann sum</b></td><td>Ռիմանի գումար</td></tr>
+      <tr><td><b>Riemannian manifold</b></td><td>ռիմանյան բազմաձևություն</td></tr>
+      <tr><td><b>Riesz representation theorem</b></td><td>Ռիսի ներկայացման թեորեմ</td></tr>
+      <tr><td><b>right triangle</b></td><td>ուղղանկյուն եռանկյուն</td></tr>
+      <tr><td><b>right-continuous</b></td><td>աջից անընդհատ</td></tr>
+      <tr><td><b>ring</b></td><td>օղակ</td></tr>
+      <tr><td><b>risk function</b></td><td>ռիսկի ֆունկցիա</td></tr>
+      <tr><td><b>root</b></td><td>արմատ</td></tr>
+      <tr><td><b>root test</b></td><td>Կոշիի հայտանիշ</td></tr>
+      <tr><td><b>rotation</b></td><td>պտույտ</td></tr>
+      <tr><td><b>row echelon form (ref)</b></td><td>աստիճանաձև տեսք</td></tr>
+      <tr><td><b>row space</b></td><td>տողային տարածություն</td></tr>
+      <tr><td><b>row vector</b></td><td>տող-վեկտոր</td></tr>
+      <tr><td><b>rules of inference</b></td><td>արտածման կանոններ</td></tr>
+      <tr><td><b>Russell's paradox</b></td><td>Ռասելի պարադոքս</td></tr>
+      <tr><td><b>saddle point</b></td><td>թամբի կետ</td></tr>
+      <tr><td><b>sample</b></td><td>նմուշ</td></tr>
+      <tr><td><b>sample mean</b></td><td>նմուշային միջին, էմպիրիկ միջին</td></tr>
+      <tr><td><b>sample range</b></td><td>նմուշի լայնք</td></tr>
+      <tr><td><b>sample space</b></td><td>[տարրական] ելքերի բազմություն</td></tr>
+      <tr><td><b>sampling</b></td><td>նմուշահանում</td></tr>
+      <tr><td><b>scalar multiplication</b></td><td>սկալյարով բազմապատկում, թվով բազմապատկում</td></tr>
+      <tr><td><b>scalar product</b></td><td>սկալյար արտադրյալ</td></tr>
+      <tr><td><b>secant method</b></td><td>հատողների մեթոդ</td></tr>
+      <tr><td><b>second fundamental form</b></td><td>երկրորդ ֆունդամենտալ ձև, երկրորդ քառակուսային ձև</td></tr>
+      <tr><td><b>section</b></td><td>հատույթ</td></tr>
+      <tr><td><b>segment bisector</b></td><td>միջնագիծ</td></tr>
+      <tr><td><b>self-adjoint operator</b></td><td>ինքնահամալուծ օպերատոր</td></tr>
+      <tr><td><b>self-intersection</b></td><td>ինքնահատում</td></tr>
+      <tr><td><b>semigroup</b></td><td>կիսախումբ</td></tr>
+      <tr><td><b>seminorm</b></td><td>կիսանորմ</td></tr>
+      <tr><td><b>separable differential equation</b></td><td>անջատվող փոփոխականներով դիֆերենցիալ հավասարում</td></tr>
+      <tr><td><b>separable space</b></td><td>սեպարաբել տարածություն</td></tr>
+      <tr><td><b>separation axioms</b></td><td>անջատելիության աքսիոմներ</td></tr>
+      <tr><td><b>sequence</b></td><td>հաջորդականություն</td></tr>
+      <tr><td><b>sequential</b></td><td>հաջորդականային</td></tr>
+      <tr><td><b>sequentially</b></td><td>հաջորդականորեն, <i>երբեմն նաև՝</i> ըստ Հայնեի</td></tr>
+      <tr><td><b>sesquilinear form</b></td><td>մեկուկեսգծային ձև</td></tr>
+      <tr><td><b>set</b></td><td>բազմություն</td></tr>
+      <tr><td><b>set-theoretic</b></td><td>տեսաբազմական</td></tr>
+      <tr><td><b>shear transformation</b></td><td>շեղման ձևափոխություն, սահքի ձևափոխություն</td></tr>
+      <tr><td><b>sigma-algebra</b></td><td>սիգմա-հանրահաշիվ</td></tr>
+      <tr><td><b>significance level </b></td><td>նշանակալիության մակարդակ</td></tr>
+      <tr><td><b>similar matrices</b></td><td>նման մատրիցներ</td></tr>
+      <tr><td><b>simple curve</b></td><td>պարզ կոր</td></tr>
+      <tr><td><b>simple function</b></td><td>պարզ ֆունկցիա</td></tr>
+      <tr><td><b>simple root</b></td><td>պարզ արմատ</td></tr>
+      <tr><td><b>simplex</b></td><td>սիմպլեքս</td></tr>
+      <tr><td><b>simply connected</b></td><td>միակապ</td></tr>
+      <tr><td><b>singleton</b></td><td>մեկկետանոց [բազմություն]</td></tr>
+      <tr><td><b>singularity / singular point</b></td><td>եզակիություն, եզակի[ության] կետ</td></tr>
+      <tr><td><b>skew-symmetric</b></td><td>շեղ-սիմետրիկ</td></tr>
+      <tr><td><b>slope field</b></td><td>ուղղությունների դաշտ</td></tr>
+      <tr><td><b>smooth curve</b></td><td>ողորկ կոր</td></tr>
+      <tr><td><b>smooth function</b></td><td>ողորկ ֆունկցիա</td></tr>
+      <tr><td><b>smooth manifold</b></td><td>ողորկ բազմաձևություն</td></tr>
+      <tr><td><b>Sobolev space</b></td><td>Սոբոլևի տարածություն</td></tr>
+      <tr><td><b>solid [figure]</b></td><td>մարմին</td></tr>
+      <tr><td><b>solvable</b></td><td>լուծելի</td></tr>
+      <tr><td><b>space curve</b></td><td>տարածական կոր</td></tr>
+      <tr><td><b>span</b></td><td>գծային թաղանթ</td></tr>
+      <tr><td><b>spanning subgraph</b></td><td>կմախքային ենթագրաֆ</td></tr>
+      <tr><td><b>spectral theorem</b></td><td>սպեկտրալ թեորեմ</td></tr>
+      <tr><td><b>spectrum</b></td><td>սպեկտր</td></tr>
+      <tr><td><b>sphere</b></td><td>սֆերա, <i>երբեմն նաև՝</i> գնդային մակերևույթ</td></tr>
+      <tr><td><b>splitting field</b></td><td>վերլուծության դաշտ</td></tr>
+      <tr><td><b>square</b></td><td>քառակուսի</td></tr>
+      <tr><td><b>square matrix</b></td><td>քառակուսի մատրից</td></tr>
+      <tr><td><b>stability</b></td><td>կայունություն</td></tr>
+      <tr><td><b>stable</b></td><td>կայուն</td></tr>
+      <tr><td><b>standard deviation</b></td><td>ստանդարտ շեղում</td></tr>
+      <tr><td><b>stationary process</b></td><td>ստացիոնար պրոցես</td></tr>
+      <tr><td><b>statistical hypothesis</b></td><td>վիճակագրական վարկած</td></tr>
+      <tr><td><b>step function</b></td><td>աստիճանաձև ֆունկցիա</td></tr>
+      <tr><td><b>Stieltjes integral</b></td><td>Ստիլտեսի ինտեգրալ</td></tr>
+      <tr><td><b>stiffness</b></td><td>կոշտություն</td></tr>
+      <tr><td><b>stochastic differential equation</b></td><td>ստոխաստիկ դիֆերենցիալ հավասարում</td></tr>
+      <tr><td><b>strictly increasing/decreasing/monotone</b></td><td>խիստ աճող/նվազող/մոնոտոն</td></tr>
+      <tr><td><b>strong product</b></td><td>ուժեղ արտադրյալ</td></tr>
+      <tr><td><b>stronger topology</b></td><td>[ավելի] ուժեղ տոպոլոգիա</td></tr>
+      <tr><td><b>subadditive</b></td><td>կիսաադիտիվ</td></tr>
+      <tr><td><b>subbase</b></td><td>ենթաբազա</td></tr>
+      <tr><td><b>subgroup</b></td><td>ենթախումբ</td></tr>
+      <tr><td><b>sublinear</b></td><td>սուբգծային</td></tr>
+      <tr><td><b>subsequence</b></td><td>ենթահաջորդականություն</td></tr>
+      <tr><td><b>subset</b></td><td>ենթաբազմություն</td></tr>
+      <tr><td><b>subspace</b></td><td>ենթատարածություն</td></tr>
+      <tr><td><b>successive approximation</b></td><td>հաջորդական մոտարկում</td></tr>
+      <tr><td><b>sum</b></td><td>գումար</td></tr>
+      <tr><td><b>summable</b></td><td>հանրագումարելի</td></tr>
+      <tr><td><b>summand</b></td><td>գումարելի</td></tr>
+      <tr><td><b>superlinear</b></td><td>սուպերգծային</td></tr>
+      <tr><td><b>superposition</b></td><td>վերադրում</td></tr>
+      <tr><td><b>superset [of $A$]</b></td><td>[$A$-ն] պարունակող բազմություն, [$A$-ի] վերբազմություն</td></tr>
+      <tr><td><b>support</b></td><td>կրիչ</td></tr>
+      <tr><td><b>supremum</b></td><td>սուպրեմում, ճշգրիտ վերին եզր</td></tr>
+      <tr><td><b>surface</b></td><td>մակերևույթ</td></tr>
+      <tr><td><b>surface integral</b></td><td>մակերևութային ինտեգրալ</td></tr>
+      <tr><td><b>surface of revolution</b></td><td>պտտման մակերևույթ</td></tr>
+      <tr><td><b>surjective</b></td><td>սյուրյեկտիվ</td></tr>
+      <tr><td><b>symmetric difference</b></td><td>սիմետրիկ տարբերություն</td></tr>
+      <tr><td><b>symmetric matrix</b></td><td>սիմետրիկ մատրից</td></tr>
+      <tr><td><b>symmetry</b></td><td>համաչափություն, սիմետրիա</td></tr>
+      <tr><td><b>symmetry group</b></td><td>սիմետրիկ խումբ</td></tr>
+      <tr><td><b>system</b></td><td>համակարգ</td></tr>
+      <tr><td><b>system of linear equations</b></td><td>գծային հավասարումների համակարգ</td></tr>
+      <tr><td><b>tail of a series</b></td><td>շարքի պոչ, <i>երբեմն նաև՝</i> մնացորդային անդամ</td></tr>
+      <tr><td><b>tangent</b></td><td>շոշափող</td></tr>
+      <tr><td><b>tangent plane</b></td><td>շոշափող հարթություն</td></tr>
+      <tr><td><b>tangent space</b></td><td>շոշափող տարածություն</td></tr>
+      <tr><td><b>Taylor polynomial</b></td><td>Թեյլորի բազմանդամ</td></tr>
+      <tr><td><b>Taylor series</b></td><td>Թեյլորի շարք</td></tr>
+      <tr><td><b>telescoping series</b></td><td>տելեսկոպիկ շարք</td></tr>
+      <tr><td><b>tensor</b></td><td>թենզոր</td></tr>
+      <tr><td><b>tensor calculus</b></td><td>թենզորական հաշիվ</td></tr>
+      <tr><td><b>test function</b></td><td>փորձնական ֆունկցիա</td></tr>
+      <tr><td><b>tetrahedron</b></td><td>քառանիստ</td></tr>
+      <tr><td><b>theorem</b></td><td>թեորեմ</td></tr>
+      <tr><td><b>time-dependent</b></td><td>ժամանակից կախված</td></tr>
+      <tr><td><b>time-independent</b></td><td>ժամանակից անկախ</td></tr>
+      <tr><td><b>topological group</b></td><td>տոպոլոգիական խումբ</td></tr>
+      <tr><td><b>topological manifold</b></td><td>տոպոլոգիական բազմաձևություն</td></tr>
+      <tr><td><b>topological space</b></td><td>տոպոլոգիական տարածություն</td></tr>
+      <tr><td><b>topological vector space</b></td><td>տոպոլոգիական վեկտորական տարածություն, <i>երբեմն նաև՝</i> գծային տոպոլոգիական տարածություն</td></tr>
+      <tr><td><b>topology</b></td><td>տոպոլոգիա</td></tr>
+      <tr><td><b>torsion </b></td><td>ոլորում</td></tr>
+      <tr><td><b>torsion-free</b></td><td>առանց ոլորման</td></tr>
+      <tr><td><b>torus</b></td><td>տոր</td></tr>
+      <tr><td><b>total derivative</b></td><td>լրիվ դիֆերենցիալ</td></tr>
+      <tr><td><b>total probability</b></td><td>լրիվ հավանականություն</td></tr>
+      <tr><td><b>total variation</b></td><td>լրիվ վարիացիա</td></tr>
+      <tr><td><b>totally bounded</b></td><td>լիովին սահմանափակ</td></tr>
+      <tr><td><b>totally ordered</b></td><td>գծորեն կարգավորված</td></tr>
+      <tr><td><b>trace</b></td><td>հետք</td></tr>
+      <tr><td><b>transcendental number</b></td><td>տրանսցենդենտ թիվ</td></tr>
+      <tr><td><b>transition matrix</b></td><td>անցման մատրից</td></tr>
+      <tr><td><b>transitivity</b></td><td>փոխանցականություն</td></tr>
+      <tr><td><b>translation</b></td><td>տեղաշարժ, զուգահեռ տեղափոխություն</td></tr>
+      <tr><td><b>translation invariant</b></td><td>տեղաշարժի նկատմամբ ինվարիանտ</td></tr>
+      <tr><td><b>translation operator</b></td><td>տեղաշարժի օպերատոր </td></tr>
+      <tr><td><b>transpose</b></td><td>տրանսպոնացում, շրջում</td></tr>
+      <tr><td><b>transposition</b></td><td>դիրքափոխություն</td></tr>
+      <tr><td><b>trapezoid / trapezium</b></td><td>սեղան</td></tr>
+      <tr><td><b>tree</b></td><td>ծառ</td></tr>
+      <tr><td><b>triangle</b></td><td>եռանկյուն</td></tr>
+      <tr><td><b>triangle inequality</b></td><td>եռանկյան անհավասարություն</td></tr>
+      <tr><td><b>tridiagonal matrix</b></td><td>երեքանկյունագծային մատրից</td></tr>
+      <tr><td><b>trigonometric function</b></td><td>եռանկյունաչափական ֆունկցիա</td></tr>
+      <tr><td><b>trigonometric polynomial</b></td><td>եռանկյունաչափական բազմանդամ</td></tr>
+      <tr><td><b>triple product</b></td><td>խառը արտադրյալ</td></tr>
+      <tr><td><b>truncated cylinder</b></td><td>հատած գլան</td></tr>
+      <tr><td><b>truth table</b></td><td>ճշմարտության աղյուսակ</td></tr>
+      <tr><td><b>two-sheeted</b></td><td><ol style="margin:0;padding-left:0;list-style-position:inside;"><li>երկթերթ (ծածկոց)</li><li>երկխոռոչ (հիպերբոլոիդ)</li></ol></td></tr>
+      <tr><td><b>unbiased estimator</b></td><td>անշեղ գնահատական</td></tr>
+      <tr><td><b>unbounded operator</b></td><td>անսահմանափակ օպերատոր</td></tr>
+      <tr><td><b>uncertainty principle</b></td><td>անորոշության սկզբունք</td></tr>
+      <tr><td><b>uncountable</b></td><td>անհաշվելի</td></tr>
+      <tr><td><b>uniform continuity</b></td><td>հավասարաչափ անընդհատություն</td></tr>
+      <tr><td><b>uniform convergence</b></td><td>հավասարաչափ զուգամիտություն</td></tr>
+      <tr><td><b>uniform distribution</b></td><td>հավասարաչափ բաշխում</td></tr>
+      <tr><td><b>uniformly bounded</b></td><td>հավասարաչափ սահմանափակ</td></tr>
+      <tr><td><b>uniformly continuous</b></td><td>հավասարաչափ անընդհատ</td></tr>
+      <tr><td><b>uniformly distributed</b></td><td>հավասարաչափ բաշխված</td></tr>
+      <tr><td><b>union</b></td><td>միավորում</td></tr>
+      <tr><td><b>unique factorization</b></td><td>միակ վերլուծություն</td></tr>
+      <tr><td><b>unique factorization domain</b></td><td>ֆակտորիալ օղակ, միակ վերլուծության տիրույթ</td></tr>
+      <tr><td><b>uniquely determined</b></td><td>միարժեքորեն որոշված</td></tr>
+      <tr><td><b>uniqueness </b></td><td>միակություն</td></tr>
+      <tr><td><b>unit</b></td><td>միավոր</td></tr>
+      <tr><td><b>unit matrix</b></td><td>միավոր մատրից</td></tr>
+      <tr><td><b>unit-speed parametrization</b></td><td>բնական պարամետրացում</td></tr>
+      <tr><td><b>unital algebra </b></td><td>միավորով հանրահաշիվ</td></tr>
+      <tr><td><b>unitary</b></td><td>ունիտար</td></tr>
+      <tr><td><b>up to isomorphism/rotation/...</b></td><td>իզոմորֆիզմի/պտույտի/․․․ ճշտությամբ</td></tr>
+      <tr><td><b>up to the boundary</b></td><td>ընդհուպ մինչև եզրը</td></tr>
+      <tr><td><b>upper bound</b></td><td>վերին եզր</td></tr>
+      <tr><td><b>upper semicontinuous</b></td><td>վերևից կիսաանընդհատ</td></tr>
+      <tr><td><b>upper triangular matrix</b></td><td>վերին եռանկյունաձև մատրից</td></tr>
+      <tr><td><b>usual topology</b></td><td>սովորական տոպոլոգիա</td></tr>
+      <tr><td><b>variance</b></td><td>դիսպերսիա, վարիացիա</td></tr>
+      <tr><td><b>variation of parameters</b></td><td>հաստատունի վարիացիա</td></tr>
+      <tr><td><b>variational calculus</b></td><td>վարիացիոն հաշիվ</td></tr>
+      <tr><td><b>vector</b></td><td>վեկտոր</td></tr>
+      <tr><td><b>vector field</b></td><td>վեկտորական դաշտ</td></tr>
+      <tr><td><b>vector space</b></td><td>գծային տարածություն, վեկտորական տարածություն</td></tr>
+      <tr><td><b>vector-valued</b></td><td>վեկտորարժեք</td></tr>
+      <tr><td><b>vertex</b></td><td>գագաթ</td></tr>
+      <tr><td><b>vertical asymptote</b></td><td>ուղղաձիգ ասիմպտոտ</td></tr>
+      <tr><td><b>volume</b></td><td>ծավալ</td></tr>
+      <tr><td><b>volume element</b></td><td>ծավալի տարր/էլեմենտ</td></tr>
+      <tr><td><b>wave equation</b></td><td>ալիքի հավասարում</td></tr>
+      <tr><td><b>wavelet</b></td><td>վեյվլեթ</td></tr>
+      <tr><td><b>weak compactness</b></td><td>թույլ կոմպակտություն</td></tr>
+      <tr><td><b>weak formulation</b></td><td>թույլ ձևակերպում</td></tr>
+      <tr><td><b>weak topology</b></td><td>թույլ տոպոլոգիա</td></tr>
+      <tr><td><b>weak* topology</b></td><td>թույլ* տոպոլոգիա </td></tr>
+      <tr><td><b>weaker topology</b></td><td>[ավելի] թույլ տոպոլոգիա</td></tr>
+      <tr><td><b>weakly convergent</b></td><td>թույլ զուգամետ</td></tr>
+      <tr><td><b>weight</b></td><td>կշիռ</td></tr>
+      <tr><td><b>weighted average</b></td><td>կշռավորված միջին</td></tr>
+      <tr><td><b>well ordered</b></td><td>լիովին կարգավորված</td></tr>
+      <tr><td><b>well-posedness</b></td><td>կոռեկտություն</td></tr>
+      <tr><td><b>without loss of generality (wlog)</b></td><td>առանց ընդհանրությունը խախտելու</td></tr>
+      <tr><td><b>zeros of a function</b></td><td>ֆունկցիայի զրոներ</td></tr>
+    </tbody>
+        </table>
+
+        <div id="no-results" class="no-results" style="display:none;">∅</div>
+    </div>
+
+    <script>
+        /* ----------------- Utilities ----------------- */
+
+        function escapeHtml(str) {
+            return String(str || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        // Convert a UTF-16 (code-unit) index into a code-point index (Array.from aware).
+        function unitIndexToCodePointIndex(str, unitIndex) {
+            return Array.from(str.slice(0, unitIndex)).length;
+        }
+
+        // Convert a unit-range [sUnit,eUnit] (inclusive) to code-point range [sCp,eCp] (inclusive)
+        function unitRangeToCpRange(range, str) {
+            const sUnit = range[0],
+                eUnit = range[1];
+            const sCp = unitIndexToCodePointIndex(str, sUnit);
+            const lenCp = Array.from(str.slice(sUnit, eUnit + 1)).length;
+            const eCp = sCp + Math.max(0, lenCp - 1);
+            return [sCp, eCp];
+        }
+
+        // Get single longest range from array of [s,e] (inclusive) pairs (code-point indices)
+        function getLongestRange(ranges) {
+            if (!ranges || ranges.length === 0) return null;
+            return ranges.reduce((best, cur) => {
+                const curLen = cur[1] - cur[0] + 1;
+                const bestLen = best ? (best[1] - best[0] + 1) : -1;
+                return curLen > bestLen ? cur : best;
+            }, null);
+        }
+
+        // Highlight only the longest match (ranges are code-point indices). Use Array.from for slicing.
+        function highlightLongest(text, cpRanges) {
+            if (!cpRanges || cpRanges.length === 0) return escapeHtml(text);
+            const longest = getLongestRange(cpRanges);
+            if (!longest) return escapeHtml(text);
+
+            const chars = Array.from(text);
+            const start = Math.max(0, Math.min(chars.length - 1, longest[0]));
+            const end = Math.max(-1, Math.min(chars.length - 1, longest[1]));
+            const before = chars.slice(0, start).join('');
+            const match = chars.slice(start, end + 1).join('');
+            const after = chars.slice(end + 1).join('');
+            return escapeHtml(before) + '<span class="highlight">' + escapeHtml(match) + '</span>' + escapeHtml(after);
+        }
+
+        // Fallback: find first exact substring occurrence (case-insensitive) and highlight it (if any).
+        function highlightFallback(text, query) {
+            if (!query) return escapeHtml(text);
+            const lowerText = text.toLowerCase();
+            const lowerQ = query.toLowerCase();
+            const idx = lowerText.indexOf(lowerQ);
+            if (idx === -1) return escapeHtml(text);
+            const chars = Array.from(text);
+            const start = idx;
+            const end = idx + Array.from(query).length - 1;
+            return highlightLongest(text, [
+                [start, end]
+            ]);
+        }
+
+        /* Find math spans in the raw string (unit indices).
+           Returns an array of unit-index ranges [startUnit, endUnit] (end inclusive).
+           Supports: $$...$$, \[...\], \(...\), and single $...$.
+        */
+        function findMathSpansUnit(str) {
+            const spans = [];
+            const len = str.length;
+            let i = 0;
+            while (i < len) {
+                if (str.startsWith('$$', i)) {
+                    const start = i;
+                    const close = str.indexOf('$$', i + 2);
+                    if (close !== -1) {
+                        spans.push([start, close + 1]);
+                        i = close + 2;
+                        continue;
+                    } else {
+                        i += 2;
+                        continue;
+                    }
+                }
+                if (str.startsWith('\\[', i)) {
+                    const start = i;
+                    const close = str.indexOf('\\]', i + 2);
+                    if (close !== -1) {
+                        spans.push([start, close + 1]);
+                        i = close + 2;
+                        continue;
+                    } else {
+                        i += 2;
+                        continue;
+                    }
+                }
+                if (str.startsWith('\\(', i)) {
+                    const start = i;
+                    const close = str.indexOf('\\)', i + 2);
+                    if (close !== -1) {
+                        spans.push([start, close + 1]);
+                        i = close + 2;
+                        continue;
+                    } else {
+                        i += 2;
+                        continue;
+                    }
+                }
+                if (str[i] === '$') {
+                    if (str[i + 1] === '$') {
+                        i += 1;
+                        continue;
+                    }
+                    const start = i;
+                    let j = i + 1;
+                    let found = -1;
+                    while (j < len) {
+                        if (str[j] === '$') {
+                            const prev = str[j - 1];
+                            const next = str[j + 1];
+                            if (prev !== '$' && next !== '$') {
+                                found = j;
+                                break;
+                            }
+                            if (next === '$') {
+                                j += 2;
+                                continue;
+                            }
+                        }
+                        j++;
+                    }
+                    if (found !== -1) {
+                        spans.push([start, found]);
+                        i = found + 1;
+                        continue;
+                    } else {
+                        i = j;
+                        continue;
+                    }
+                }
+                i++;
+            }
+            return spans;
+        }
+
+        // Check whether two code-point ranges overlap
+        function rangesOverlap(a, b) {
+            return !(a[1] < b[0] || b[1] < a[0]);
+        }
+
+        // Convert unit ranges -> cp ranges and filter out those overlapping math spans
+        function convertAndFilterRanges(unitRanges, text, mathCpSpans) {
+            if (!unitRanges || unitRanges.length === 0) return [];
+            const cpRanges = [];
+            for (const ur of unitRanges) {
+                const cp = unitRangeToCpRange(ur, text);
+                let ok = true;
+                for (const m of mathCpSpans) {
+                    if (rangesOverlap(cp, m)) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok) cpRanges.push(cp);
+            }
+            return cpRanges;
+        }
+
+        /* Three-tier ranking (lower = better):
+             1  whole text starts with the query  (exact match included)
+             2  some word in the text starts with the query
+             3  the rest (internal substring, fuzzy, etc.)
+           Within each tier we prefer the term column over the translation column,
+           then use a short tiebreaker (shorter matched-word / earlier position).
+        */
+        const WORD_SPLIT = /[^0-9\p{L}]+/u;
+
+        function rankFor(text, ql) {
+            if (!text) return {
+                tier: 3,
+                sub: Infinity
+            };
+            const lower = text.toLowerCase();
+            if (lower.startsWith(ql)) return {
+                tier: 1,
+                sub: lower.length
+            };
+            const words = lower.split(WORD_SPLIT).filter(Boolean);
+            let bestWordLen = Infinity;
+            for (const w of words) {
+                if (w.startsWith(ql) && w.length < bestWordLen) bestWordLen = w.length;
+            }
+            if (bestWordLen !== Infinity) return {
+                tier: 2,
+                sub: bestWordLen
+            };
+            return {
+                tier: 3,
+                sub: lower.includes(ql) ? lower.indexOf(ql) : Infinity
+            };
+        }
+
+        function computeRank(item, query) {
+            const ql = query.toLowerCase();
+            const t = rankFor(item.term, ql);
+            const r = rankFor(item.translation, ql);
+            // term column wins ties: encode column as a fractional offset
+            const tScore = t.tier * 10; // term: .0
+            const rScore = r.tier * 10 + 1; // translation: .1
+            if (tScore <= rScore) return {
+                tier: t.tier,
+                score: tScore,
+                sub: t.sub,
+                source: 'term'
+            };
+            return {
+                tier: r.tier,
+                score: rScore,
+                sub: r.sub,
+                source: 'translation'
+            };
+        }
+
+        /* ----------------- Prepare data and Fuse ----------------- */
+        /* Strip math delimiters but keep their content so a query like "p-adic"
+           matches an entry rendered as "$p$-adic". */
+        function stripMathDelimiters(text) {
+            return String(text || "")
+                .replace(/\$\$([\s\S]*?)\$\$/g, '$1')
+                .replace(/\\\[([\s\S]*?)\\\]/g, '$1')
+                .replace(/\\\(([\s\S]*?)\\\)/g, '$1')
+                .replace(/\$([^$]*)\$/g, '$1');
+        }
+
+        const tbody = document.querySelector("#glossary tbody");
+        const rows = Array.from(tbody.rows);
+        const data = rows.map((row, idx) => ({
+            id: idx,
+            rowEl: row,
+            term: stripMathDelimiters(row.cells[0].textContent || ""),
+            translation: stripMathDelimiters(row.cells[1].textContent || "")
+        }));
+
+        data.forEach(d => {
+            d.orig = [d.rowEl.cells[0].innerHTML, d.rowEl.cells[1].innerHTML];
+        });
+
+        let fuse = null;
+        const thrInput = document.getElementById('threshold'); // may be null if hidden/removed
+        const thrVal = document.getElementById('thr-val');
+        const DEFAULT_THRESHOLD = 0.15;
+
+        function getThresholdFromSlider() {
+            return thrInput ? Number(thrInput.value) / 100 : DEFAULT_THRESHOLD;
+        }
+
+        function buildFuse(threshold) {
+            const options = {
+                keys: [{
+                    name: 'term',
+                    weight: 0.65
+                }, {
+                    name: 'translation',
+                    weight: 0.35
+                }],
+                includeMatches: true,
+                includeScore: true,
+                findAllMatches: true,
+                ignoreLocation: true,
+                threshold: threshold,
+                minMatchCharLength: 1,
+                useExtendedSearch: false
+            };
+            fuse = new Fuse(data, options);
+        }
+        buildFuse(getThresholdFromSlider());
+
+        /* ----------------- Rendering / Search ----------------- */
+
+        function restoreRowHtml(item) {
+            item.rowEl.cells[0].innerHTML = item.orig[0];
+            item.rowEl.cells[1].innerHTML = item.orig[1];
+        }
+
+        function showAll() {
+            data.forEach(d => {
+                d.rowEl.style.display = "";
+                restoreRowHtml(d);
+                tbody.appendChild(d.rowEl); // restore original DOM order
+            });
+            // restored innerHTML has literal $...$ — re-run KaTeX so math is rendered
+            try {
+                renderMathInElement(tbody, {
+                    delimiters: [{
+                        left: "$$",
+                        right: "$$",
+                        display: true
+                    }, {
+                        left: "\\[",
+                        right: "\\]",
+                        display: true
+                    }, {
+                        left: "\\(",
+                        right: "\\)",
+                        display: false
+                    }, {
+                        left: "$",
+                        right: "$",
+                        display: false
+                    }],
+                    throwOnError: false
+                });
+            } catch (e) {}
+            document.getElementById('no-results').style.display = 'none';
+        }
+
+        // Given matches array (from Fuse) for a field, return cp ranges with math-filtering applied
+        function extractFilteredCpRanges(itemText, matches) {
+            const out = {
+                term: [],
+                translation: []
+            };
+            if (!matches || matches.length === 0) return out;
+
+            const mathUnitSpans = findMathSpansUnit(itemText);
+            const mathCpSpans = mathUnitSpans.map(uRange => unitRangeToCpRange(uRange, itemText));
+
+            for (const m of matches) {
+                if (!m.indices || !m.key) continue;
+                const cpRanges = convertAndFilterRanges(m.indices, itemText, mathCpSpans);
+                if (m.key === 'term') out.term.push(...cpRanges);
+                if (m.key === 'translation') out.translation.push(...cpRanges);
+            }
+            return out;
+        }
+
+        /* Walk every text node in `rowEl` and wrap each (case-insensitive) occurrence
+           of `query` in <span class="highlight">. Skips text inside KaTeX-rendered
+           math (anything inside an element with class "katex"). HTML structure
+           (lists, italics, bold) is preserved because we never touch innerHTML.
+        */
+        function highlightInRow(rowEl, query) {
+            if (!query) return;
+            const ql = query.toLowerCase();
+            const qLen = query.length;
+
+            const walker = document.createTreeWalker(rowEl, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    let p = node.parentNode;
+                    while (p && p !== rowEl) {
+                        if (p.classList && p.classList.contains('katex')) return NodeFilter.FILTER_REJECT;
+                        p = p.parentNode;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+
+            const nodes = [];
+            let n;
+            while ((n = walker.nextNode())) nodes.push(n);
+
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+                const text = node.nodeValue;
+                if (!text) continue;
+                const idx = text.toLowerCase().indexOf(ql);
+                if (idx === -1) continue;
+
+                const before = text.slice(0, idx);
+                const match = text.slice(idx, idx + qLen);
+                const after = text.slice(idx + qLen);
+
+                const span = document.createElement('span');
+                span.className = 'highlight';
+                span.textContent = match;
+
+                const parent = node.parentNode;
+                if (before) parent.insertBefore(document.createTextNode(before), node);
+                parent.insertBefore(span, node);
+                if (after) {
+                    const afterNode = document.createTextNode(after);
+                    parent.insertBefore(afterNode, node);
+                    nodes.push(afterNode); // re-scan for further matches
+                }
+                parent.removeChild(node);
+            }
+        }
+
+        function runSearch() {
+            const q = document.getElementById('search').value || '';
+            const qTrim = q.trim();
+            if (thrVal && thrInput) thrVal.textContent = `${thrInput.value}%`;
+
+            if (!qTrim) {
+                showAll();
+                return;
+            }
+
+            let results = fuse.search(qTrim);
+
+            if (!results || results.length === 0) {
+                data.forEach(d => {
+                    d.rowEl.style.display = "none";
+                    restoreRowHtml(d);
+                });
+                document.getElementById('no-results').style.display = '';
+                return;
+            }
+
+            // Replace Fuse's ordering with tier-based ranking. Fuse score is only a
+            // tiebreaker for entries that fell into the "fuzzy-only" bucket (tier 99).
+            results = results.map(r => {
+                const ranking = computeRank(r.item, qTrim);
+                const fuseScore = (typeof r.score === 'number') ? r.score : 1;
+                return Object.assign({}, r, {
+                    ranking,
+                    fuseScore
+                });
+            });
+            results.sort((a, b) => {
+                if (a.ranking.score !== b.ranking.score) return a.ranking.score - b.ranking.score;
+                if (a.ranking.sub !== b.ranking.sub) return a.ranking.sub - b.ranking.sub;
+                return a.fuseScore - b.fuseScore;
+            });
+
+            // hide all first and restore
+            data.forEach(d => {
+                d.rowEl.style.display = "none";
+                restoreRowHtml(d);
+            });
+
+            // show matched rows: restore the original cell HTML (preserves <i>, <ol>,
+            // <b>, etc.), render math, then wrap query occurrences in highlight spans
+            // by walking text nodes (skipping anything inside .katex). Also move each
+            // row to the end of tbody in sorted order so the visible rows actually
+            // appear in the ranking order, not their original CSV order.
+            for (const r of results) {
+                const item = r.item;
+                item.rowEl.cells[0].innerHTML = item.orig[0];
+                item.rowEl.cells[1].innerHTML = item.orig[1];
+                item.rowEl.style.display = "";
+                tbody.appendChild(item.rowEl); // reorder: best match goes to the top of the visible block
+
+                try {
+                    renderMathInElement(item.rowEl, {
+                        delimiters: [{
+                            left: "$$",
+                            right: "$$",
+                            display: true
+                        }, {
+                            left: "\\[",
+                            right: "\\]",
+                            display: true
+                        }, {
+                            left: "\\(",
+                            right: "\\)",
+                            display: false
+                        }, {
+                            left: "$",
+                            right: "$",
+                            display: false
+                        }],
+                        throwOnError: false
+                    });
+                } catch (e) {}
+
+                highlightInRow(item.rowEl, qTrim);
+            }
+
+            document.getElementById('no-results').style.display = 'none';
+        }
+
+        /* Debounce helper */
+        function debounce(fn, wait) {
+            let t;
+            return function(...args) {
+                clearTimeout(t);
+                t = setTimeout(() => fn.apply(this, args), wait);
+            };
+        }
+        const debounced = debounce(runSearch, 120);
+
+        /* Events */
+        document.getElementById('search').addEventListener('input', debounced);
+        if (thrInput) {
+            thrInput.addEventListener('input', function() {
+                buildFuse(getThresholdFromSlider());
+                runSearch();
+            });
+        }
+
+        // initial ?q= support
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('q')) {
+            const initial = urlParams.get('q');
+            document.getElementById('search').value = initial;
+            runSearch();
+        }
+
+        // initial render of any math in the full table (so math present before search shows correctly)
+        try {
+            renderMathInElement(document.getElementById('glossary'), {
+                delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                }, {
+                    left: "\\[",
+                    right: "\\]",
+                    display: true
+                }, {
+                    left: "\\(",
+                    right: "\\)",
+                    display: false
+                }, {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }],
+                throwOnError: false
+            });
+        } catch (e) {}
+
+        document.getElementById('search').focus();
+    </script>
+</body>
+
+</html>
