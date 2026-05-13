@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="hy">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Մաթեմատիկական տերմինների բառարան</title>
+
+    <!-- Fuse.js (fuzzy search) -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            margin: 0;
+            padding: 64px 24px 96px;
+            background: #f7f7fb;
+            color: #1a1a22;
+            line-height: 1.55;
+        }
+        
+        .container {
+            width: 70%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin: 0 0 24px 0;
+            font-size: 32px;
+            letter-spacing: -0.01em;
+        }
+        
+        .user-guide {
+            margin: 0 0 36px 0;
+            color: #4a4a55;
+            font-size: 14px;
+        }
+        
+        .user-guide h2 {
+            margin: 0 0 10px 0;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a7a85;
+        }
+        
+        .user-guide p {
+            margin: 0 0 12px 0;
+        }
+        
+        .user-guide ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .user-guide li {
+            margin-bottom: 6px;
+        }
+        
+        .user-guide code {
+            background: #ececf2;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 12.5px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+        
+        .searchbox {
+            margin: 0 0 24px 0;
+        }
+        
+        input[type="search"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #d0d4db;
+            font-size: 16px;
+            background: #fff;
+            transition: border-color .15s, box-shadow .15s;
+        }
+        
+        input[type="search"]:focus {
+            outline: none;
+            border-color: #7a8aff;
+            box-shadow: 0 0 0 3px rgba(122, 138, 255, 0.18);
+        }
+        
+        input[type="search"]::placeholder {
+            font-style: italic;
+            color: #9a9aa5;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04), 0 0 0 1px rgba(16, 24, 40, 0.06);
+        }
+        
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 50%;
+        }
+        
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 50%;
+        }
+        
+        th,
+        td {
+            text-align: left;
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f4;
+            vertical-align: top;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+        
+        th {
+            background: #fafafa;
+            font-weight: 600;
+            font-size: 12px;
+            color: #6a6a75;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+        
+        tr.hidden {
+            display: none;
+        }
+        
+        .highlight {
+            background: #fff29a;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        
+        .no-results {
+            padding: 18px;
+            text-align: center;
+            color: #666;
+        }
+        
+        @media (max-width: 720px) {
+            body {
+                padding: 20px 16px 48px;
+            }
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Մաթեմատիկական տերմինների բառարան</h1>
+
+        <section class="user-guide">
+            <h2>Անգլերեն-հայերեն և հայերեն-անգլերեն</h2>
+            <p>Ներքևում բերված բառացուցակում կա անգլերենից հայերեն թարգմանությամբ շուրջ 1000 տերմին մաթեմատիկայի տարբեր ճյուղերից (ինչը նշանակում է, որ այն շատ հեռու է համապարփակ բառարան համարվելուց)։</p>
+            <p>Ինչպե՞ս օգտվել բառարանից.</p>
+            <ul>
+                <li>Որոնման դաշտում բավարար է գրել ոչ թե ամբողջ արտահայտությունը, այլ առաջին մի քանի տառերը։</li>
+                <li>Կարելի է որոնել ինչպես անգլերեն, այնպես էլ հայերեն արտահայտություն։</li>
+            </ul>
+        </section>
+
+        <div class="searchbox" role="search" aria-label="Search glossary">
+            <input id="search" type="search" placeholder="Օրինակ՝ vector space..." aria-label="Search table" />
+            <!-- <div class="controls" style="display:none;" aria-hidden="true">
+        <label>Threshold:
+          <input id="threshold" type="range" min="0" max="100" value="15" />
+        </label>
+        <span id="thr-val">15%</span>
+      </div> -->
+        </div>
+
+        <table id="glossary" role="table" aria-label="Glossary table">
+            <thead>
+                <tr>
+                    <th>Անգլերեն</th>
+                    <th>Հայերեն</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example rows; replace/extend these -->
+                <tr>
+                    <td>Axis</td>
+                    <td>առանցք</td>
+                </tr>
+                <tr>
+                    <td>Coordinate</td>
+                    <td>կոորդինատ</td>
+                </tr>
+                <tr>
+                    <td>Coordinate system</td>
+                    <td>կոորդինատային համակարգ</td>
+                </tr>
+                <tr>
+                    <td>Vector</td>
+                    <td>վեկտոր</td>
+                </tr>
+                <tr>
+                    <td>Point</td>
+                    <td>կետ</td>
+                </tr>
+
+                <!-- Math examples in translation column -->
+                <tr>
+                    <td>Energy</td>
+                    <td>$E = mc^2$</td>
+                </tr>
+                <tr>
+                    <td>Slope</td>
+                    <td>Slope formula: $m = \\frac{\\Delta y}{\\Delta x}$</td>
+                </tr>
+                <tr>
+                    <td>Circle area</td>
+                    <td>Աշխ. մակերես: $$A = \\pi r^2$$</td>
+                </tr>
+
+                <!-- Math example in term column (now supported) -->
+                <tr>
+                    <td>$n$-tuple</td>
+                    <td>$n$-յակ</td>
+                </tr>
+                <tr>
+                    <td>Distance $d = \\sqrt{x^2 + y^2}$</td>
+                    <td>հեռավորություն</td>
+                </tr>
+
+                <tr>
+                    <td>apple</td>
+                    <td>Apfel</td>
+                </tr>
+                <tr>
+                    <td>banana</td>
+                    <td>Banane</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="no-results" class="no-results" style="display:none;">∅</div>
+    </div>
+
+    <script>
+        /* ----------------- Utilities ----------------- */
+
+        function escapeHtml(str) {
+            return String(str || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        // Convert a UTF-16 (code-unit) index into a code-point index (Array.from aware).
+        function unitIndexToCodePointIndex(str, unitIndex) {
+            return Array.from(str.slice(0, unitIndex)).length;
+        }
+
+        // Convert a unit-range [sUnit,eUnit] (inclusive) to code-point range [sCp,eCp] (inclusive)
+        function unitRangeToCpRange(range, str) {
+            const sUnit = range[0],
+                eUnit = range[1];
+            const sCp = unitIndexToCodePointIndex(str, sUnit);
+            const lenCp = Array.from(str.slice(sUnit, eUnit + 1)).length;
+            const eCp = sCp + Math.max(0, lenCp - 1);
+            return [sCp, eCp];
+        }
+
+        // Get single longest range from array of [s,e] (inclusive) pairs (code-point indices)
+        function getLongestRange(ranges) {
+            if (!ranges || ranges.length === 0) return null;
+            return ranges.reduce((best, cur) => {
+                const curLen = cur[1] - cur[0] + 1;
+                const bestLen = best ? (best[1] - best[0] + 1) : -1;
+                return curLen > bestLen ? cur : best;
+            }, null);
+        }
+
+        // Highlight only the longest match (ranges are code-point indices). Use Array.from for slicing.
+        function highlightLongest(text, cpRanges) {
+            if (!cpRanges || cpRanges.length === 0) return escapeHtml(text);
+            const longest = getLongestRange(cpRanges);
+            if (!longest) return escapeHtml(text);
+
+            const chars = Array.from(text);
+            const start = Math.max(0, Math.min(chars.length - 1, longest[0]));
+            const end = Math.max(-1, Math.min(chars.length - 1, longest[1]));
+            const before = chars.slice(0, start).join('');
+            const match = chars.slice(start, end + 1).join('');
+            const after = chars.slice(end + 1).join('');
+            return escapeHtml(before) + '<span class="highlight">' + escapeHtml(match) + '</span>' + escapeHtml(after);
+        }
+
+        // Fallback: find first exact substring occurrence (case-insensitive) and highlight it (if any).
+        function highlightFallback(text, query) {
+            if (!query) return escapeHtml(text);
+            const lowerText = text.toLowerCase();
+            const lowerQ = query.toLowerCase();
+            const idx = lowerText.indexOf(lowerQ);
+            if (idx === -1) return escapeHtml(text);
+            const chars = Array.from(text);
+            const start = idx;
+            const end = idx + Array.from(query).length - 1;
+            return highlightLongest(text, [
+                [start, end]
+            ]);
+        }
+
+        /* Find math spans in the raw string (unit indices).
+           Returns an array of unit-index ranges [startUnit, endUnit] (end inclusive).
+           Supports: $$...$$, \[...\], \(...\), and single $...$.
+        */
+        function findMathSpansUnit(str) {
+            const spans = [];
+            const len = str.length;
+            let i = 0;
+            while (i < len) {
+                if (str.startsWith('$$', i)) {
+                    const start = i;
+                    const close = str.indexOf('$$', i + 2);
+                    if (close !== -1) {
+                        spans.push([start, close + 1]);
+                        i = close + 2;
+                        continue;
+                    } else {
+                        i += 2;
+                        continue;
+                    }
+                }
+                if (str.startsWith('\\[', i)) {
+                    const start = i;
+                    const close = str.indexOf('\\]', i + 2);
+                    if (close !== -1) {
+                        spans.push([start, close + 1]);
+                        i = close + 2;
+                        continue;
+                    } else {
+                        i += 2;
+                        continue;
+                    }
+                }
+                if (str.startsWith('\\(', i)) {
+                    const start = i;
+                    const close = str.indexOf('\\)', i + 2);
+                    if (close !== -1) {
+                        spans.push([start, close + 1]);
+                        i = close + 2;
+                        continue;
+                    } else {
+                        i += 2;
+                        continue;
+                    }
+                }
+                if (str[i] === '$') {
+                    if (str[i + 1] === '$') {
+                        i += 1;
+                        continue;
+                    }
+                    const start = i;
+                    let j = i + 1;
+                    let found = -1;
+                    while (j < len) {
+                        if (str[j] === '$') {
+                            const prev = str[j - 1];
+                            const next = str[j + 1];
+                            if (prev !== '$' && next !== '$') {
+                                found = j;
+                                break;
+                            }
+                            if (next === '$') {
+                                j += 2;
+                                continue;
+                            }
+                        }
+                        j++;
+                    }
+                    if (found !== -1) {
+                        spans.push([start, found]);
+                        i = found + 1;
+                        continue;
+                    } else {
+                        i = j;
+                        continue;
+                    }
+                }
+                i++;
+            }
+            return spans;
+        }
+
+        // Check whether two code-point ranges overlap
+        function rangesOverlap(a, b) {
+            return !(a[1] < b[0] || b[1] < a[0]);
+        }
+
+        // Convert unit ranges -> cp ranges and filter out those overlapping math spans
+        function convertAndFilterRanges(unitRanges, text, mathCpSpans) {
+            if (!unitRanges || unitRanges.length === 0) return [];
+            const cpRanges = [];
+            for (const ur of unitRanges) {
+                const cp = unitRangeToCpRange(ur, text);
+                let ok = true;
+                for (const m of mathCpSpans) {
+                    if (rangesOverlap(cp, m)) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok) cpRanges.push(cp);
+            }
+            return cpRanges;
+        }
+
+        /* Three-tier ranking (lower = better):
+             1  whole text starts with the query  (exact match included)
+             2  some word in the text starts with the query
+             3  the rest (internal substring, fuzzy, etc.)
+           Within each tier we prefer the term column over the translation column,
+           then use a short tiebreaker (shorter matched-word / earlier position).
+        */
+        const WORD_SPLIT = /[^0-9\p{L}]+/u;
+
+        function rankFor(text, ql) {
+            if (!text) return {
+                tier: 3,
+                sub: Infinity
+            };
+            const lower = text.toLowerCase();
+            if (lower.startsWith(ql)) return {
+                tier: 1,
+                sub: lower.length
+            };
+            const words = lower.split(WORD_SPLIT).filter(Boolean);
+            let bestWordLen = Infinity;
+            for (const w of words) {
+                if (w.startsWith(ql) && w.length < bestWordLen) bestWordLen = w.length;
+            }
+            if (bestWordLen !== Infinity) return {
+                tier: 2,
+                sub: bestWordLen
+            };
+            return {
+                tier: 3,
+                sub: lower.includes(ql) ? lower.indexOf(ql) : Infinity
+            };
+        }
+
+        function computeRank(item, query) {
+            const ql = query.toLowerCase();
+            const t = rankFor(item.term, ql);
+            const r = rankFor(item.translation, ql);
+            // term column wins ties: encode column as a fractional offset
+            const tScore = t.tier * 10; // term: .0
+            const rScore = r.tier * 10 + 1; // translation: .1
+            if (tScore <= rScore) return {
+                tier: t.tier,
+                score: tScore,
+                sub: t.sub,
+                source: 'term'
+            };
+            return {
+                tier: r.tier,
+                score: rScore,
+                sub: r.sub,
+                source: 'translation'
+            };
+        }
+
+        /* ----------------- Prepare data and Fuse ----------------- */
+        /* Strip math delimiters but keep their content so a query like "p-adic"
+           matches an entry rendered as "$p$-adic". */
+        function stripMathDelimiters(text) {
+            return String(text || "")
+                .replace(/\$\$([\s\S]*?)\$\$/g, '$1')
+                .replace(/\\\[([\s\S]*?)\\\]/g, '$1')
+                .replace(/\\\(([\s\S]*?)\\\)/g, '$1')
+                .replace(/\$([^$]*)\$/g, '$1');
+        }
+
+        const tbody = document.querySelector("#glossary tbody");
+        const rows = Array.from(tbody.rows);
+        const data = rows.map((row, idx) => ({
+            id: idx,
+            rowEl: row,
+            term: stripMathDelimiters(row.cells[0].textContent || ""),
+            translation: stripMathDelimiters(row.cells[1].textContent || "")
+        }));
+
+        data.forEach(d => {
+            d.orig = [d.rowEl.cells[0].innerHTML, d.rowEl.cells[1].innerHTML];
+        });
+
+        let fuse = null;
+        const thrInput = document.getElementById('threshold'); // may be null if hidden/removed
+        const thrVal = document.getElementById('thr-val');
+        const DEFAULT_THRESHOLD = 0.15;
+
+        function getThresholdFromSlider() {
+            return thrInput ? Number(thrInput.value) / 100 : DEFAULT_THRESHOLD;
+        }
+
+        function buildFuse(threshold) {
+            const options = {
+                keys: [{
+                    name: 'term',
+                    weight: 0.65
+                }, {
+                    name: 'translation',
+                    weight: 0.35
+                }],
+                includeMatches: true,
+                includeScore: true,
+                findAllMatches: true,
+                ignoreLocation: true,
+                threshold: threshold,
+                minMatchCharLength: 1,
+                useExtendedSearch: false
+            };
+            fuse = new Fuse(data, options);
+        }
+        buildFuse(getThresholdFromSlider());
+
+        /* ----------------- Rendering / Search ----------------- */
+
+        function restoreRowHtml(item) {
+            item.rowEl.cells[0].innerHTML = item.orig[0];
+            item.rowEl.cells[1].innerHTML = item.orig[1];
+        }
+
+        function showAll() {
+            data.forEach(d => {
+                d.rowEl.style.display = "";
+                restoreRowHtml(d);
+                tbody.appendChild(d.rowEl); // restore original DOM order
+            });
+            // restored innerHTML has literal $...$ — re-run KaTeX so math is rendered
+            try {
+                renderMathInElement(tbody, {
+                    delimiters: [{
+                        left: "$$",
+                        right: "$$",
+                        display: true
+                    }, {
+                        left: "\\[",
+                        right: "\\]",
+                        display: true
+                    }, {
+                        left: "\\(",
+                        right: "\\)",
+                        display: false
+                    }, {
+                        left: "$",
+                        right: "$",
+                        display: false
+                    }],
+                    throwOnError: false
+                });
+            } catch (e) {}
+            document.getElementById('no-results').style.display = 'none';
+        }
+
+        // Given matches array (from Fuse) for a field, return cp ranges with math-filtering applied
+        function extractFilteredCpRanges(itemText, matches) {
+            const out = {
+                term: [],
+                translation: []
+            };
+            if (!matches || matches.length === 0) return out;
+
+            const mathUnitSpans = findMathSpansUnit(itemText);
+            const mathCpSpans = mathUnitSpans.map(uRange => unitRangeToCpRange(uRange, itemText));
+
+            for (const m of matches) {
+                if (!m.indices || !m.key) continue;
+                const cpRanges = convertAndFilterRanges(m.indices, itemText, mathCpSpans);
+                if (m.key === 'term') out.term.push(...cpRanges);
+                if (m.key === 'translation') out.translation.push(...cpRanges);
+            }
+            return out;
+        }
+
+        /* Walk every text node in `rowEl` and wrap each (case-insensitive) occurrence
+           of `query` in <span class="highlight">. Skips text inside KaTeX-rendered
+           math (anything inside an element with class "katex"). HTML structure
+           (lists, italics, bold) is preserved because we never touch innerHTML.
+        */
+        function highlightInRow(rowEl, query) {
+            if (!query) return;
+            const ql = query.toLowerCase();
+            const qLen = query.length;
+
+            const walker = document.createTreeWalker(rowEl, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    let p = node.parentNode;
+                    while (p && p !== rowEl) {
+                        if (p.classList && p.classList.contains('katex')) return NodeFilter.FILTER_REJECT;
+                        p = p.parentNode;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+
+            const nodes = [];
+            let n;
+            while ((n = walker.nextNode())) nodes.push(n);
+
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+                const text = node.nodeValue;
+                if (!text) continue;
+                const idx = text.toLowerCase().indexOf(ql);
+                if (idx === -1) continue;
+
+                const before = text.slice(0, idx);
+                const match = text.slice(idx, idx + qLen);
+                const after = text.slice(idx + qLen);
+
+                const span = document.createElement('span');
+                span.className = 'highlight';
+                span.textContent = match;
+
+                const parent = node.parentNode;
+                if (before) parent.insertBefore(document.createTextNode(before), node);
+                parent.insertBefore(span, node);
+                if (after) {
+                    const afterNode = document.createTextNode(after);
+                    parent.insertBefore(afterNode, node);
+                    nodes.push(afterNode); // re-scan for further matches
+                }
+                parent.removeChild(node);
+            }
+        }
+
+        function runSearch() {
+            const q = document.getElementById('search').value || '';
+            const qTrim = q.trim();
+            if (thrVal && thrInput) thrVal.textContent = `${thrInput.value}%`;
+
+            if (!qTrim) {
+                showAll();
+                return;
+            }
+
+            let results = fuse.search(qTrim);
+
+            if (!results || results.length === 0) {
+                data.forEach(d => {
+                    d.rowEl.style.display = "none";
+                    restoreRowHtml(d);
+                });
+                document.getElementById('no-results').style.display = '';
+                return;
+            }
+
+            // Replace Fuse's ordering with tier-based ranking. Fuse score is only a
+            // tiebreaker for entries that fell into the "fuzzy-only" bucket (tier 99).
+            results = results.map(r => {
+                const ranking = computeRank(r.item, qTrim);
+                const fuseScore = (typeof r.score === 'number') ? r.score : 1;
+                return Object.assign({}, r, {
+                    ranking,
+                    fuseScore
+                });
+            });
+            results.sort((a, b) => {
+                if (a.ranking.score !== b.ranking.score) return a.ranking.score - b.ranking.score;
+                if (a.ranking.sub !== b.ranking.sub) return a.ranking.sub - b.ranking.sub;
+                return a.fuseScore - b.fuseScore;
+            });
+
+            // hide all first and restore
+            data.forEach(d => {
+                d.rowEl.style.display = "none";
+                restoreRowHtml(d);
+            });
+
+            // show matched rows: restore the original cell HTML (preserves <i>, <ol>,
+            // <b>, etc.), render math, then wrap query occurrences in highlight spans
+            // by walking text nodes (skipping anything inside .katex). Also move each
+            // row to the end of tbody in sorted order so the visible rows actually
+            // appear in the ranking order, not their original CSV order.
+            for (const r of results) {
+                const item = r.item;
+                item.rowEl.cells[0].innerHTML = item.orig[0];
+                item.rowEl.cells[1].innerHTML = item.orig[1];
+                item.rowEl.style.display = "";
+                tbody.appendChild(item.rowEl); // reorder: best match goes to the top of the visible block
+
+                try {
+                    renderMathInElement(item.rowEl, {
+                        delimiters: [{
+                            left: "$$",
+                            right: "$$",
+                            display: true
+                        }, {
+                            left: "\\[",
+                            right: "\\]",
+                            display: true
+                        }, {
+                            left: "\\(",
+                            right: "\\)",
+                            display: false
+                        }, {
+                            left: "$",
+                            right: "$",
+                            display: false
+                        }],
+                        throwOnError: false
+                    });
+                } catch (e) {}
+
+                highlightInRow(item.rowEl, qTrim);
+            }
+
+            document.getElementById('no-results').style.display = 'none';
+        }
+
+        /* Debounce helper */
+        function debounce(fn, wait) {
+            let t;
+            return function(...args) {
+                clearTimeout(t);
+                t = setTimeout(() => fn.apply(this, args), wait);
+            };
+        }
+        const debounced = debounce(runSearch, 120);
+
+        /* Events */
+        document.getElementById('search').addEventListener('input', debounced);
+        if (thrInput) {
+            thrInput.addEventListener('input', function() {
+                buildFuse(getThresholdFromSlider());
+                runSearch();
+            });
+        }
+
+        // initial ?q= support
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('q')) {
+            const initial = urlParams.get('q');
+            document.getElementById('search').value = initial;
+            runSearch();
+        }
+
+        // initial render of any math in the full table (so math present before search shows correctly)
+        try {
+            renderMathInElement(document.getElementById('glossary'), {
+                delimiters: [{
+                    left: "$$",
+                    right: "$$",
+                    display: true
+                }, {
+                    left: "\\[",
+                    right: "\\]",
+                    display: true
+                }, {
+                    left: "\\(",
+                    right: "\\)",
+                    display: false
+                }, {
+                    left: "$",
+                    right: "$",
+                    display: false
+                }],
+                throwOnError: false
+            });
+        } catch (e) {}
+
+        document.getElementById('search').focus();
+    </script>
+</body>
+
+</html>
